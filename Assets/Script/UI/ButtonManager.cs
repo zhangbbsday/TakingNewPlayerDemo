@@ -21,7 +21,11 @@ public class ButtonManager
     }
     private static ButtonManager instacne;
 
-    private Dictionary<ButtonEffectType, IButtonEffect> Effects { get; } = new Dictionary<ButtonEffectType, IButtonEffect>();
+    private Dictionary<ButtonEffectType, IButtonEffect> Effects { get; } = new Dictionary<ButtonEffectType, IButtonEffect>
+    {
+        [ButtonEffectType.None] = null,
+        [ButtonEffectType.NormalEffect] = new NormalButtonEffect(),
+    };
     private ButtonManager()
     {
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,13 +18,19 @@ public abstract class ButtonBase : UIElementBase, IPointerDownHandler, IPointerU
         base.Start();
 
         TextTransform = Transform.GetChild(0);
-        Text = TextTransform.GetComponent<Text>();
+        if (TextTransform != null)
+            Text = TextTransform.GetComponent<Text>();
+
         Button = GetComponent<Button>();
 
         ButtonEffectType effect = SetButtonEffect();
         ButtonEffect = ButtonManager.Instance.GetEffect(effect);
+
+        var action = AddMethod();
+        Button.onClick.AddListener(() => action());
     }
 
+    protected abstract Action AddMethod();
     protected virtual ButtonEffectType SetButtonEffect()
     {
         return ButtonEffectType.None;

@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class UIElementBase : GameActor
 {
     public Vector2 Position { get; set; }
+    public RectTransform RectTransform { get; private set; }
+    protected bool CanChangePosition { get; set; }
 
     protected override void Start()
     {
@@ -20,11 +22,14 @@ public abstract class UIElementBase : GameActor
 
     private void Pretreatment()
     {
-        Position = Transform.localPosition;
+        RectTransform = GetComponent<RectTransform>();
+        Position = RectTransform.localPosition;
+        CanChangePosition = true;
     }
 
     private void UpdateBase()
     {
-        Transform.localPosition = Position;
+        if (CanChangePosition)
+            RectTransform.localPosition = Position;
     }
 }

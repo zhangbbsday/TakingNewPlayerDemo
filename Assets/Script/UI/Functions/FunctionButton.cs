@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
-public class ExitButton : ButtonBase
+public class FunctionButton : ButtonBase
 {
+    [SerializeField]
+    private FunctionMenu menu;
+
     protected override void Start()
     {
-        base.Start();
+        base.Start();   
         CanChangePosition = false;
     }
 
@@ -16,16 +19,14 @@ public class ExitButton : ButtonBase
     {
         return ButtonManager.ButtonEffectType.NormalEffect;
     }
+
     protected override Action AddMethod()
     {
-        return () => Exit();
+        return () => ShowMenu();
     }
-    private void Exit()
+
+    private void ShowMenu()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-		Application.Quit();
-#endif
+
     }
 }
