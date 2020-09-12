@@ -31,10 +31,13 @@ public class FunctionButton : ButtonBase
             ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
         menu.Show();
         ButtonManager.Instance.SetActiveFunctionButton(this);
+
+        ButtonEffect.SelectedEffect();
     }
 
     public void CloseMenu()
     {
         menu.Close();
+        ButtonEffect.CancelEffect();
     }
 }

@@ -1,6 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public enum ButtonState
+{
+    None,
+    Enter,
+    Exit,
+    Press,
+    Relese,
+    Selected,
+    Cancel,
+}
 
 public interface IButtonEffect
 {
@@ -9,4 +16,5 @@ public interface IButtonEffect
     void PressEffect();
     void ReleseEffect();
     void SelectedEffect();
+    void CancelEffect();
 }

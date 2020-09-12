@@ -8,10 +8,10 @@ using static ButtonManager;
 
 public abstract class ButtonBase : UIElementBase, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, IPointerEnterHandler
 {
-    protected Transform TextTransform { get; set; }
-    protected Text Text { get; set; }
-    protected Button Button { get; set; }
-    private IButtonEffect ButtonEffect { get; set; }
+    public Button Button { get; private set; }
+    public Transform TextTransform { get; private set; }
+    public Text Text { get; private set; }
+    protected IButtonEffect ButtonEffect { get; private set; }
 
     protected override void Start()
     {
@@ -24,8 +24,7 @@ public abstract class ButtonBase : UIElementBase, IPointerDownHandler, IPointerU
         Button = GetComponent<Button>();
 
         ButtonEffectType effect = SetButtonEffect();
-        ButtonEffect = ButtonManager.Instance.GetEffect(effect);
-
+        ButtonEffect = ButtonManager.Instance.GetEffect(effect, this);
         var action = AddMethod();
         Button.onClick.AddListener(() => action());
     }

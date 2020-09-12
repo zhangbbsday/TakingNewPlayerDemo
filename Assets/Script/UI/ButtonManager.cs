@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,20 +23,20 @@ public class ButtonManager
     private static ButtonManager instacne;
     public FunctionButton FunctionButtonActiveNow { get; private set; }
 
-    private Dictionary<ButtonEffectType, IButtonEffect> Effects { get; } = new Dictionary<ButtonEffectType, IButtonEffect>
+    private Dictionary<ButtonEffectType, Type> Effects { get; } = new Dictionary<ButtonEffectType, Type>
     {
         [ButtonEffectType.None] = null,
-        [ButtonEffectType.NormalEffect] = new NormalButtonEffect(),
+        [ButtonEffectType.NormalEffect] = typeof(NormalButtonEffect),
     };
     private ButtonManager()
     {
 
     }
 
-    public IButtonEffect GetEffect(ButtonEffectType effect)
+    public IButtonEffect GetEffect(ButtonEffectType effect, ButtonBase button)
     {
         if (Effects.ContainsKey(effect))
-            return Effects[effect];
+            return (IButtonEffect)System.Activator.CreateInstance(Effects[effect], new object[] { button });
         return null;
     }
     public void SetActiveFunctionButton(FunctionButton button)
