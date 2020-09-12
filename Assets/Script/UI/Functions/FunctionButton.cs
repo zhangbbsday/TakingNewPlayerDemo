@@ -25,8 +25,16 @@ public class FunctionButton : ButtonBase
         return () => ShowMenu();
     }
 
-    private void ShowMenu()
+    public void ShowMenu()
     {
+        if (ButtonManager.Instance.FunctionButtonActiveNow != null)
+            ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
+        menu.Show();
+        ButtonManager.Instance.SetActiveFunctionButton(this);
+    }
 
+    public void CloseMenu()
+    {
+        menu.Close();
     }
 }

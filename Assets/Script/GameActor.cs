@@ -19,6 +19,6 @@ public abstract class GameActor : MonoBehaviour
     private void Initialization()
     {
         Transform = transform;
-        GameObject = Transform.gameObject;
+        GameObject = gameObject;
     }
 }

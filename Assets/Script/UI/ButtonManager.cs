@@ -20,6 +20,7 @@ public class ButtonManager
         }
     }
     private static ButtonManager instacne;
+    public FunctionButton FunctionButtonActiveNow { get; private set; }
 
     private Dictionary<ButtonEffectType, IButtonEffect> Effects { get; } = new Dictionary<ButtonEffectType, IButtonEffect>
     {
@@ -36,5 +37,9 @@ public class ButtonManager
         if (Effects.ContainsKey(effect))
             return Effects[effect];
         return null;
+    }
+    public void SetActiveFunctionButton(FunctionButton button)
+    {
+        FunctionButtonActiveNow = button;
     }
 }

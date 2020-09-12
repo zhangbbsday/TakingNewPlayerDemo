@@ -22,6 +22,13 @@ public class ExitButton : ButtonBase
     }
     private void Exit()
     {
+        if (ButtonManager.Instance.FunctionButtonActiveNow != null)
+        {
+            ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
+            ButtonManager.Instance.SetActiveFunctionButton(null);
+            return;
+        }
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
