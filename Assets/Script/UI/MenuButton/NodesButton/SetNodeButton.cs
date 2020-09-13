@@ -12,6 +12,6 @@ public class SetNodeButton : MenuButton
 
     private void SetNode()
     {
-
+        NodeFactory.CreateNode(Node.NodeType.NormalNode, Vector2.zero);
     }
 }
