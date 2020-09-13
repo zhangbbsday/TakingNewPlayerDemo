@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 51562559}
   - component: {fileID: 51562558}
   - component: {fileID: 51562557}
+  - component: {fileID: 51562556}
   m_Layer: 5
   m_Name: SetStartNodeButton
   m_TagString: Untagged
@@ -276,6 +277,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &51562556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51562554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90628335e98d5a4d9999b83fc913486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &51562557
 Animator:
   serializedVersion: 3
@@ -1971,6 +1984,7 @@ GameObject:
   - component: {fileID: 530176795}
   - component: {fileID: 530176794}
   - component: {fileID: 530176793}
+  - component: {fileID: 530176792}
   m_Layer: 5
   m_Name: DeleteNodeButton
   m_TagString: Untagged
@@ -1998,6 +2012,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &530176792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530176790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b86fec6ac885644ba662616cbdda2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &530176793
 Animator:
   serializedVersion: 3
@@ -2952,6 +2978,7 @@ GameObject:
   - component: {fileID: 733137903}
   - component: {fileID: 733137902}
   - component: {fileID: 733137901}
+  - component: {fileID: 733137900}
   m_Layer: 5
   m_Name: SetEndNodeButton
   m_TagString: Untagged
@@ -2979,6 +3006,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &733137900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733137898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e2e7eedfbee949865d7b76a1eba6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &733137901
 Animator:
   serializedVersion: 3
@@ -4927,6 +4966,7 @@ GameObject:
   - component: {fileID: 1144946122}
   - component: {fileID: 1144946121}
   - component: {fileID: 1144946120}
+  - component: {fileID: 1144946119}
   m_Layer: 5
   m_Name: SetNodeButton
   m_TagString: Untagged
@@ -4954,6 +4994,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1144946119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144946117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d315b564daf5d344b584752711a5ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1144946120
 Animator:
   serializedVersion: 3
