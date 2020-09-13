@@ -42,12 +42,12 @@ public class SetNodeButton : MenuButton
         }
     }
 
-    protected override void PressAction()
+    public override void PressAction()
     {
         IsPlacingNode = true;
     }
 
-    protected override void ReleseAction()
+    public override void ReleseAction()
     {
         IsPlacingNode = false;
     }

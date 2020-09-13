@@ -16,8 +16,13 @@ public abstract class MenuButton : ButtonBase
         return () => ButtonAction();
     }
 
-    protected abstract void PressAction();
-    protected abstract void ReleseAction();
+    protected void OnDisable()
+    {
+        ReleseAction();
+    }
+
+    public abstract void PressAction();
+    public abstract void ReleseAction();
 
     protected override ButtonManager.ButtonEffectType SetButtonEffect()
     {
@@ -26,7 +31,7 @@ public abstract class MenuButton : ButtonBase
 
     private void ButtonAction()
     {
-        if (ButtonManager.Instance.MenuButtonActiveNow != null)
+        if (ButtonManager.Instance.MenuButtonActiveNow != null && ButtonManager.Instance.MenuButtonActiveNow.GameObject.activeSelf)
             ButtonManager.Instance.MenuButtonActiveNow.ReleseAction();
 
         PressAction();
