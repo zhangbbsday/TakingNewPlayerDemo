@@ -25,7 +25,7 @@ public class ExitButton : ButtonBase
         if (ButtonManager.Instance.FunctionButtonActiveNow != null)
         {
             ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
-            ButtonManager.Instance.SetActiveFunctionButton(null);
+            ButtonManager.Instance.FunctionButtonActiveNow = null;
             return;
         }
 

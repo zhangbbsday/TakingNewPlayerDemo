@@ -30,7 +30,7 @@ public class FunctionButton : ButtonBase
         if (ButtonManager.Instance.FunctionButtonActiveNow != null)
             ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
         menu.Show();
-        ButtonManager.Instance.SetActiveFunctionButton(this);
+        ButtonManager.Instance.FunctionButtonActiveNow = this;
 
         ButtonEffect.SelectedEffect();
     }

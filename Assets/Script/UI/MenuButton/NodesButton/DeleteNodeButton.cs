@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class DeleteNodeButton : MenuButton
 {
-    protected override Action AddMethod()
+    protected override void PressAction()
     {
-        return () => DeleteNode();
+        throw new NotImplementedException();
     }
 
-    private void DeleteNode()
+    protected override void ReleseAction()
     {
-
+        throw new NotImplementedException();
     }
 }

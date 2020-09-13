@@ -2,16 +2,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SetNodeButton : MenuButton
 {
-    protected override Action AddMethod()
+    enum ButtonType
     {
-        return () => SetNode();
+        NormalNode,
+        StartNode,
+        EndNode,
     }
 
-    private void SetNode()
+    private Dictionary<ButtonType, Node.NodeType> ChangeMap = new Dictionary<ButtonType, Node.NodeType>
     {
-        NodeFactory.CreateNode(Node.NodeType.NormalNode, Vector2.zero);
+        [ButtonType.NormalNode] = Node.NodeType.NormalNode,    
+        [ButtonType.StartNode] = Node.NodeType.StartNode,    
+        [ButtonType.EndNode] = Node.NodeType.EndNode,
+    };
+
+    [SerializeField]
+    private ButtonType buttonType;
+    private bool IsPlacingNode { get; set; } = false;
+    protected override void Update()
+    {
+        base.Update();
+        PlaceNode();
+    }
+
+    private void PlaceNode()
+    {
+        if (!IsPlacingNode)
+            return;
+
+        if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
+        {
+            Vector2 pos = MouseUtils.MouseWorldPosition;
+            NodeFactory.CreateNode(ChangeMap[buttonType], pos);
+            IsPlacingNode = false;
+        }
+    }
+
+    protected override void PressAction()
+    {
+        IsPlacingNode = true;
+    }
+
+    protected override void ReleseAction()
+    {
+        IsPlacingNode = false;
     }
 }

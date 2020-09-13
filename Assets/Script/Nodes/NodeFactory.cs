@@ -17,7 +17,7 @@ public static class NodeFactory
     {
         string nodeName = NodesName[(int)type];
         Node node = GameManager.Instance.ResourcesManager.GetNode(nodeName);
-        GameObject.Instantiate(node, node.Position, Quaternion.identity, GameManager.Instance.NodesManager.NodesParent);
+        GameObject.Instantiate(node, position, Quaternion.identity, GameManager.Instance.NodesManager.NodesParent);
 
         return node;
     }

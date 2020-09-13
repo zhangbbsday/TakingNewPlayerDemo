@@ -19,6 +19,14 @@ public class Node : GameActor
     protected override void Start()
     {
         base.Start();
+        Position = Transform.position;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        Transform.position = Position;
     }
 
     public void Link(Node node)

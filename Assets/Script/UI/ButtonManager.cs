@@ -21,8 +21,8 @@ public class ButtonManager
         }
     }
     private static ButtonManager instacne;
-    public FunctionButton FunctionButtonActiveNow { get; private set; }
-
+    public FunctionButton FunctionButtonActiveNow { get; set; }
+    public MenuButton MenuButtonActiveNow { get; set; }
     private Dictionary<ButtonEffectType, Type> Effects { get; } = new Dictionary<ButtonEffectType, Type>
     {
         [ButtonEffectType.None] = null,
@@ -38,9 +38,5 @@ public class ButtonManager
         if (Effects.ContainsKey(effect))
             return (IButtonEffect)System.Activator.CreateInstance(Effects[effect], new object[] { button });
         return null;
-    }
-    public void SetActiveFunctionButton(FunctionButton button)
-    {
-        FunctionButtonActiveNow = button;
     }
 }
