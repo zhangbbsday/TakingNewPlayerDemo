@@ -7,6 +7,7 @@ public class DeleteNodeButton : MenuButton
 {
     private bool IsSelecting { get; set; }
     private float SelectRange { get; } = 0.5f;
+    private Node SelectedOne { get; set; }
 
     protected override void Update()
     {
@@ -20,6 +21,7 @@ public class DeleteNodeButton : MenuButton
             return;
 
         Node node = FindNearestNode();
+        SelectedEffect(node);
         if (node == null)
             return;
 
@@ -41,7 +43,6 @@ public class DeleteNodeButton : MenuButton
                 nearest = new KeyValuePair<Node, float>(n, distance);
         }
 
-        Debug.Log($"{nearest.Key} : {nearest.Value}");
         if (nearest.Value < SelectRange)
             return nearest.Key;
         return null;
@@ -50,16 +51,32 @@ public class DeleteNodeButton : MenuButton
     private void DeleteOne(Node node)
     {
         GameManager.Instance.NodesManager.DeleteNode(node);
-        IsSelecting = false;
+        //IsSelecting = false;
+    }
+
+    private void SelectedEffect(Node node)
+    {
+        if (SelectedOne == null)
+            SelectedOne = node;
+        else
+        {
+            SelectedOne.Transform.localScale = Vector3.one;
+            SelectedOne = node;
+        }
+
+        if (SelectedOne != null)
+            SelectedOne.Transform.localScale = new Vector3(1, 1, 0) * 1.2f;
     }
 
     public override void PressAction()
     {
         IsSelecting = true;
+        SelectedOne = null;
     }
 
     public override void ReleseAction()
     {
         IsSelecting = false;
+        SelectedOne = null;
     }
 }

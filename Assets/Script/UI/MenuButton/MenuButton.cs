@@ -19,6 +19,7 @@ public abstract class MenuButton : ButtonBase
     protected void OnDisable()
     {
         ReleseAction();
+        ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
     }
 
     public abstract void PressAction();
@@ -32,9 +33,13 @@ public abstract class MenuButton : ButtonBase
     private void ButtonAction()
     {
         if (ButtonManager.Instance.MenuButtonActiveNow != null && ButtonManager.Instance.MenuButtonActiveNow.GameObject.activeSelf)
+        {
             ButtonManager.Instance.MenuButtonActiveNow.ReleseAction();
+            ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+        }
 
         PressAction();
         ButtonManager.Instance.MenuButtonActiveNow = this;
+        ButtonEffect.SelectedEffect();
     }
 }

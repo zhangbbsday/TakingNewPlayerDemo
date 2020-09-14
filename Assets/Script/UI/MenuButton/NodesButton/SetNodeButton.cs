@@ -42,7 +42,7 @@ public class SetNodeButton : MenuButton
     {
         Vector2 pos = MouseUtils.MouseWorldPosition;
         GameManager.Instance.NodesManager.CreateNode(ChangeMap[buttonType], pos);
-        IsPlacingNode = false;
+        //IsPlacingNode = false;
     }
 
     public override void PressAction()
