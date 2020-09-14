@@ -16,6 +16,13 @@ public class Node : GameActor
     public NodeType Type { get; private set; }
     private List<Node> Links { get; set; } = new List<Node>();
 
+    public void Init(int id, Vector2 pos, NodeType type)
+    {
+        Id = id;
+        Position = pos;
+        Type = type;
+    }
+
     protected override void Start()
     {
         base.Start();

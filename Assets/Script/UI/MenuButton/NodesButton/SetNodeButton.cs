@@ -37,7 +37,7 @@ public class SetNodeButton : MenuButton
         if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
         {
             Vector2 pos = MouseUtils.MouseWorldPosition;
-            NodeFactory.CreateNode(ChangeMap[buttonType], pos);
+            GameManager.Instance.NodesManager.CreateNode(ChangeMap[buttonType], pos);
             IsPlacingNode = false;
         }
     }
