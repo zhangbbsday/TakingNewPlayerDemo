@@ -32,7 +32,7 @@ public class NodesManager
         string nodeName = NodesName[(int)type];
 
         Node node = GameManager.Instance.ResourcesManager.GetNode(nodeName);
-        node = GameObject.Instantiate(node, position, Quaternion.identity, GameManager.Instance.NodesManager.NodesParent);
+        node = GameObject.Instantiate(node, position, Quaternion.identity, NodesParent);
         node.Init(GlobalIndex, position, type);
 
         SetNode(node);

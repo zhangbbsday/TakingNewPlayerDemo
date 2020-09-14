@@ -20,7 +20,7 @@ public class LinksManager
     public Link CreateLink(Node left, Node right)
     {
         Link link = GameManager.Instance.ResourcesManager.GetLink(LinksName);
-        link = GameObject.Instantiate(link, Vector2.zero, Quaternion.identity, GameManager.Instance.NodesManager.NodesParent);
+        link = GameObject.Instantiate(link, Vector2.zero, Quaternion.identity, LinksParent);
         link.Init(GlobalIndex, left, right);
 
         SetLink(link);
@@ -35,6 +35,15 @@ public class LinksManager
 
     private void SetLink(Link link)
     {
+        foreach (var l in Links.Values)
+        {
+            if (l.IsEqual(link))
+            {
+                DeleteLink(link);
+                return;
+            }
+        }
+
         Links.Add(link.Id, link);
     }
 
@@ -52,5 +61,17 @@ public class LinksManager
 
         LinksParent = obj.transform;
         LinksParent.transform.position = Vector2.zero;
+    }
+}
+
+public static class LinkExtension
+{
+    public static bool IsEqual(this Link a, Link b)
+    {
+        var aNodes = a.GetNodes();
+        var bNodes = b.GetNodes();
+
+        return (aNodes.Key == bNodes.Key && aNodes.Value == bNodes.Value) ||
+            (aNodes.Key == bNodes.Value && aNodes.Value == bNodes.Key);
     }
 }
