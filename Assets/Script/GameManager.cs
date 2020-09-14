@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public ResourcesManager ResourcesManager { get; private set; }
     public NodesManager NodesManager { get; private set; }
+    public LinksManager LinksManager { get; private set; }
 
     private void Awake()
     {
@@ -38,5 +39,6 @@ public class GameManager : MonoBehaviour
     {
         ResourcesManager = new ResourcesManager();
         NodesManager = new NodesManager();
+        LinksManager = new LinksManager();
     }
 }

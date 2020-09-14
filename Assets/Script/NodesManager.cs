@@ -7,11 +7,12 @@ public class NodesManager
 {
     public Transform NodesParent { get; private set; }
     private int GlobalIndex { get => globalIndex++; }
+    private int globalIndex;
     private string NodesParentName { get; } = "Nodes";
     private Dictionary<int, Node> Nodes { get; } = new Dictionary<int, Node>();
     private Node StartNode { get; set; }
     private Node EndNode { get; set; }
-    private int globalIndex;
+
     private static string[] NodesName { get; } =
 {
         "Node",
@@ -23,6 +24,7 @@ public class NodesManager
     public NodesManager()
     {
         FindParent();
+        globalIndex = 0;
     }
 
     public Node CreateNode(Node.NodeType type, Vector2 position)

@@ -19,7 +19,9 @@ public abstract class MenuButton : ButtonBase
     protected void OnDisable()
     {
         ReleseAction();
-        ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+
+        if (ButtonManager.Instance.MenuButtonActiveNow != null)
+            ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
     }
 
     public abstract void PressAction();
