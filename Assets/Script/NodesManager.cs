@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NodesManager
@@ -7,7 +8,7 @@ public class NodesManager
     public Transform NodesParent { get; private set; }
     private int GlobalIndex { get => globalIndex++; }
     private string NodesParentName { get; } = "Nodes";
-    private Dictionary<int, Node> NormalNodes { get; } = new Dictionary<int, Node>();
+    private Dictionary<int, Node> Nodes { get; } = new Dictionary<int, Node>();
     private Node StartNode { get; set; }
     private Node EndNode { get; set; }
     private int globalIndex;
@@ -48,7 +49,7 @@ public class NodesManager
         switch (type)
         {
             case Node.NodeType.NormalNode:
-                return NormalNodes.Count != 0;
+                return Nodes.Count != 0;
             case Node.NodeType.StartNode:
                 return StartNode != null;
             case Node.NodeType.EndNode:
@@ -58,13 +59,17 @@ public class NodesManager
         throw new System.Exception($"不存在{type}类型的节点!");
     }
 
+    public Node[] GetNodes()
+    {
+        return Nodes.Values.ToArray();
+    }
+
     private void SetNode(Node node)
     {
         Node temp = null;
         switch (node.Type)
         {
             case Node.NodeType.NormalNode:
-                NormalNodes.Add(node.Id, node);
                 break;
             case Node.NodeType.StartNode:
                 temp = StartNode;
@@ -77,6 +82,7 @@ public class NodesManager
                 EndNode = temp;
                 break;
         }
+        Nodes.Add(node.Id, node);
     }
 
     private void SetSpecialNode(Node node, ref Node target)
@@ -96,7 +102,6 @@ public class NodesManager
         switch (node.Type)
         {
             case Node.NodeType.NormalNode:
-                ClearNormalNode(node);
                 break;
             case Node.NodeType.StartNode:
                 StartNode = null;
@@ -105,13 +110,14 @@ public class NodesManager
                 EndNode = null;
                 break;
         }
+        RemoveNode(node);
     }
 
-    private void ClearNormalNode(Node node)
+    private void RemoveNode(Node node)
     {
-        if (NormalNodes.ContainsKey(node.Id))
+        if (Nodes.ContainsKey(node.Id))
         {
-            NormalNodes.Remove(node.Id);
+            Nodes.Remove(node.Id);
         }
     }
 
