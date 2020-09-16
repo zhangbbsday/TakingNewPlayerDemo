@@ -48,6 +48,11 @@ public class LinksManager
         }
     }
 
+    public Link[] GetLinks()
+    {
+        return Links.Values.ToArray();
+    }
+
     private void SetLink(Link link)
     {
         foreach (var l in Links.Values)

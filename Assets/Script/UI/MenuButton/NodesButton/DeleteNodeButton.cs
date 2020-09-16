@@ -51,7 +51,6 @@ public class DeleteNodeButton : MenuButton
     private void DeleteOne(Node node)
     {
         GameManager.Instance.NodesManager.DeleteNode(node);
-        GameManager.Instance.LinksManager.DeleteLink(node);
         //IsSelecting = false;
     }
 

@@ -22,6 +22,11 @@ public class Node : GameActor
         Type = type;
     }
 
+    public void SelectEffect()
+    {
+
+    }
+
     protected override void Start()
     {
         base.Start();
