@@ -40,6 +40,7 @@ public class SetPathButton : MenuButton
         EndNode = node;
         CreatePath();
         IsPlacing = false;
+        ButtonEffect.CancelEffect();
     }
 
     private void CreatePath()

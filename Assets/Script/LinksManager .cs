@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LinksManager
@@ -31,6 +32,20 @@ public class LinksManager
     {
         ClearLink(link);
         GameObject.Destroy(link.GameObject);
+    }
+
+    public void DeleteLink(Node node)
+    {
+        var links = Links.Values.ToArray();
+        for (int i = 0; i < links.Length; i++)
+        {
+            if (links[i] == null)
+                continue;
+
+            var nodes = links[i].GetNodes();
+            if (nodes.Key == node || nodes.Value == node)
+                DeleteLink(links[i]);
+        }
     }
 
     private void SetLink(Link link)
