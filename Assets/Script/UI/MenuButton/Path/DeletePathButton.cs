@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeletePathButton : MenuButton
 {
     private bool IsSelecting { get; set; }
-    private float SelectRange { get; } = 0.5f;
+    private float SelectRange { get; } = 0.3f;
     private Link SelectedOne { get; set; }
 
 
@@ -32,46 +32,31 @@ public class DeletePathButton : MenuButton
 
     private Link FindNearestLik()
     {
-        Link[] links = GameManager.Instance.LinksManager.GetLinks();
-        if (links == null || links.Length == 0)
-            return null;
-
-        KeyValuePair<Link, float> nearest = new KeyValuePair<Link, float>(links[0], float.MaxValue);
-        foreach (var n in links)
-        {
-            float distance = Vector2.Distance(n.Position, MouseUtils.MouseWorldPosition);
-            if (distance < nearest.Value)
-                nearest = new KeyValuePair<Link, float>(n, distance);
-        }
-
-        if (nearest.Value < SelectRange)
-            return nearest.Key;
-        return null;
+        return GameManager.Instance.LinksManager.GetMouseNearestLink(SelectRange);
     }
 
     private void SelectEffect(Link link)
     {
-        if (SelectedOne == null)
-            SelectedOne = link;
-        else
-        {
-            SelectedOne.Transform.localScale = Vector3.one;
-            SelectedOne = link;
-        }
+        if (SelectedOne == link)
+            return;
 
         if (SelectedOne != null)
-            SelectedOne.Transform.localScale = new Vector3(1, 1, 0) * 1.2f;
+            SelectedOne.ReleaseEffect();
+
+        SelectedOne = link;
+        if (SelectedOne != null)
+            SelectedOne.SelectEffect();
     }
 
     private void DeleteOne(Link link)
     {
         GameManager.Instance.LinksManager.DeleteLink(link);
+        //IsSelecting = false;
     }
 
     public override void PressAction()
     {
         IsSelecting = true;
-
         SelectedOne = null;
     }
 

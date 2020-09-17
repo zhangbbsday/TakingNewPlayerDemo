@@ -48,6 +48,6 @@ public abstract class ButtonBase : UIElementBase, IPointerDownHandler, IPointerU
     }
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-        ButtonEffect?.ReleseEffect();
+        ButtonEffect?.ReleaseEffect();
     }
 }

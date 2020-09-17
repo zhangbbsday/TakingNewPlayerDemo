@@ -66,6 +66,25 @@ public class NodesManager
         return Nodes.Values.ToArray();
     }
 
+    public Node GetMouseNearestNode(float selectRange = 0.5f)
+    {
+        Node[] nodes = GameManager.Instance.NodesManager.GetNodes();
+        if (nodes == null || nodes.Length == 0)
+            return null;
+
+        KeyValuePair<Node, float> nearest = new KeyValuePair<Node, float>(nodes[0], float.MaxValue);
+        foreach (var n in nodes)
+        {
+            float distance = Vector2.Distance(n.Position, MouseUtils.MouseWorldPosition);
+            if (distance < nearest.Value)
+                nearest = new KeyValuePair<Node, float>(n, distance);
+        }
+
+        if (nearest.Value < selectRange)
+            return nearest.Key;
+        return null;
+    }
+
     private void SetNode(Node node)
     {
         Node temp = null;

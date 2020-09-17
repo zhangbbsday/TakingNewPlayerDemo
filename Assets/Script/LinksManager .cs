@@ -53,6 +53,27 @@ public class LinksManager
         return Links.Values.ToArray();
     }
 
+    public Link GetMouseNearestLink(float selectRange = 0.5f)
+    {
+        Link[] links = GameManager.Instance.LinksManager.GetLinks();
+        if (links == null || links.Length == 0)
+            return null;
+
+        KeyValuePair<Link, float> nearest = new KeyValuePair<Link, float>(links[0], float.MaxValue);
+        foreach (var n in links)
+        {
+            var nodes = n.GetNodes();
+            float distance = VectorUtils.DistanceFromPoint2Line(MouseUtils.MouseWorldPosition,
+                                                    nodes.Key.Position, nodes.Value.Position);
+            if (distance < nearest.Value)
+                nearest = new KeyValuePair<Link, float>(n, distance);
+        }
+
+        if (nearest.Value < selectRange)
+            return nearest.Key;
+        return null;
+    }
+
     private void SetLink(Link link)
     {
         foreach (var l in Links.Values)

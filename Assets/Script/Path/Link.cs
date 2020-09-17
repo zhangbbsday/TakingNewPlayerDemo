@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Link : GameActor
+public class Link : GameActor, ISelectableActor
 {
     public int Id { get; private set; }
     public Vector2 Position { get; set; }
     private LineRenderer LineRenderer { get; set; }
     private Node LeftNode { get; set; }
     private Node RightNode { get; set; }
+    private float StartLineWidth { get; set; }
+    private float EndLineWidth { get; set; }
 
     public void Init(int id, Node left, Node right)
     {
@@ -26,6 +28,8 @@ public class Link : GameActor
 
         LineRenderer.SetPosition(0, LeftNode.Position);
         LineRenderer.SetPosition(1, RightNode.Position);
+        StartLineWidth = LineRenderer.startWidth;
+        EndLineWidth = LineRenderer.endWidth;
     }
 
     protected override void Update()
@@ -52,6 +56,13 @@ public class Link : GameActor
 
     public void SelectEffect()
     {
+        LineRenderer.startWidth = StartLineWidth * 2;
+        LineRenderer.endWidth = EndLineWidth * 2;
+    }
 
+    public void ReleaseEffect()
+    {
+        LineRenderer.startWidth = StartLineWidth;
+        LineRenderer.endWidth = EndLineWidth;
     }
 }

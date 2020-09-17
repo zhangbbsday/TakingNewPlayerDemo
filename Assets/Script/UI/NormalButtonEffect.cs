@@ -33,7 +33,7 @@ public class NormalButtonEffect : IButtonEffect
         coroutine.StartCoroutine();
     }
 
-    public void ReleseEffect()
+    public void ReleaseEffect()
     {
         //暂时没有效果
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : GameActor
+public class Node : GameActor, ISelectableActor
 {
     public enum NodeType
     {
@@ -14,17 +14,13 @@ public class Node : GameActor
     public int Id { get; private set; }
     public Vector2 Position { get; set; }
     public NodeType Type { get; private set; }
+    private float SelectedSize { get; } = 0.2f;
 
     public void Init(int id, Vector2 pos, NodeType type)
     {
         Id = id;
         Position = pos;
         Type = type;
-    }
-
-    public void SelectEffect()
-    {
-
     }
 
     protected override void Start()
@@ -38,5 +34,15 @@ public class Node : GameActor
         base.Update();
 
         Transform.position = Position;
+    }
+
+    public void SelectEffect()
+    {
+        Transform.localScale += new Vector3(1, 1, 0) * SelectedSize;
+    }
+
+    public void ReleaseEffect()
+    {
+        Transform.localScale = Vector3.one;
     }
 }

@@ -14,7 +14,7 @@ public interface IButtonEffect
     void EnterEffect();
     void ExitEffect();
     void PressEffect();
-    void ReleseEffect();
+    void ReleaseEffect();
     void SelectedEffect();
     void CancelEffect();
 }
