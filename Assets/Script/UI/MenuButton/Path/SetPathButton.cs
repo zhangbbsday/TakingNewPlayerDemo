@@ -8,6 +8,7 @@ public class SetPathButton : MenuButton
     private Node StartNode { get; set; }
     private Node EndNode { get; set; }
     private float SelectRange { get; } = 0.5f;
+    private Node SelectedOne { get; set; }
 
     protected override void Update()
     {
@@ -22,6 +23,7 @@ public class SetPathButton : MenuButton
             return;
 
         Node node = FindNearestNode();
+        SelectEffect(node);
         if (node == null)
             return;
 
@@ -41,6 +43,19 @@ public class SetPathButton : MenuButton
         CreatePath();
         IsPlacing = false;
         ButtonEffect.CancelEffect();
+    }
+
+    private void SelectEffect(Node node)
+    {
+        if (SelectedOne == node)
+            return;
+
+        if (SelectedOne != null)
+            SelectedOne.ReleaseEffect();
+
+        SelectedOne = node;
+        if (SelectedOne != null)
+            SelectedOne.SelectEffect();
     }
 
     private void CreatePath()
