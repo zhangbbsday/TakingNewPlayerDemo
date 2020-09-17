@@ -6,6 +6,7 @@ public class ResourcesManager
 {
     private Dictionary<string, Node> Nodes { get; } = new Dictionary<string, Node>();
     private Dictionary<string, Link> Links { get; } = new Dictionary<string, Link>();
+    private Dictionary<string, EnemyContainer> EnemyContainers { get; } = new Dictionary<string, EnemyContainer>();
 
     private string[] NodesPath { get; } =
     {
@@ -19,6 +20,11 @@ public class ResourcesManager
         "Prefabs/Links/Link",
     };
 
+    private string[] EnemiesPath { get; } =
+    {
+        "Prefabs/Enemies/EnemyContainer",
+    };
+
     public ResourcesManager()
     {
         Load();
@@ -28,6 +34,7 @@ public class ResourcesManager
     {
         LoadNodes();
         LoadLinks();
+        LoadEnemies();
     }
 
     public Node GetNode(string name)
@@ -38,6 +45,10 @@ public class ResourcesManager
     public Link GetLink(string name)
     {
         return Links.ContainsKey(name) ? Links[name] : null;
+    }
+    public EnemyContainer GetEnemyContainer(string name)
+    {
+        return EnemyContainers.ContainsKey(name) ? EnemyContainers[name] : null;
     }
 
     private void LoadNodes()
@@ -63,6 +74,19 @@ public class ResourcesManager
                 throw new System.Exception($"存在重名文件{obj.name}!");
 
             Links.Add(obj.name, obj);
+        }
+    }
+
+    private void LoadEnemies()
+    {
+        foreach (var path in EnemiesPath)
+        {
+            EnemyContainer obj = Resources.Load<EnemyContainer>(path);
+
+            if (EnemyContainers.ContainsKey(obj.name))
+                throw new System.Exception($"存在重名文件{obj.name}!");
+
+            EnemyContainers.Add(obj.name, obj);
         }
     }
 }

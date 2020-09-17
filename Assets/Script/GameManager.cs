@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +20,7 @@ public class GameManager : MonoBehaviour
     public ResourcesManager ResourcesManager { get; private set; }
     public NodesManager NodesManager { get; private set; }
     public LinksManager LinksManager { get; private set; }
+    public EnemyContainerManager EnemyContainerManager { get; private set; }
 
     private void Awake()
     {
@@ -40,5 +39,6 @@ public class GameManager : MonoBehaviour
         ResourcesManager = new ResourcesManager();
         NodesManager = new NodesManager();
         LinksManager = new LinksManager();
+        EnemyContainerManager = new EnemyContainerManager();
     }
 }

@@ -17,9 +17,12 @@ public abstract class ButtonBase : UIElementBase, IPointerDownHandler, IPointerU
     {
         base.Start();
 
-        TextTransform = Transform.GetChild(0);
-        if (TextTransform != null)
-            Text = TextTransform.GetComponent<Text>();
+        if (Transform.childCount != 0)
+        {
+            TextTransform = Transform.GetChild(0);
+            if (TextTransform != null)
+                Text = TextTransform.GetComponent<Text>();
+        }
 
         Button = GetComponent<Button>();
 

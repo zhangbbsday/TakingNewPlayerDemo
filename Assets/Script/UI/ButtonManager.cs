@@ -9,6 +9,7 @@ public class ButtonManager
     {
         None,
         NormalEffect,
+        NoTextEffect,
     }
 
     public static ButtonManager Instance
@@ -27,6 +28,7 @@ public class ButtonManager
     {
         [ButtonEffectType.None] = null,
         [ButtonEffectType.NormalEffect] = typeof(NormalButtonEffect),
+        [ButtonEffectType.NoTextEffect] = typeof(NoTextButtonEffect),
     };
     private ButtonManager()
     {
