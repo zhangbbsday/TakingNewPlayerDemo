@@ -6,22 +6,8 @@ using UnityEngine.UIElements;
 
 public class SetNodeButton : MenuButton
 {
-    enum ButtonType
-    {
-        NormalNode,
-        StartNode,
-        EndNode,
-    }
-
-    private Dictionary<ButtonType, Node.NodeType> ChangeMap = new Dictionary<ButtonType, Node.NodeType>
-    {
-        [ButtonType.NormalNode] = Node.NodeType.NormalNode,    
-        [ButtonType.StartNode] = Node.NodeType.StartNode,    
-        [ButtonType.EndNode] = Node.NodeType.EndNode,
-    };
-
     [SerializeField]
-    private ButtonType buttonType;
+    private Node.NodeType buttonType;
     private bool IsPlacingNode { get; set; } = false;
     protected override void Update()
     {
@@ -41,7 +27,7 @@ public class SetNodeButton : MenuButton
     private void PlaceOne()
     {
         Vector2 pos = MouseUtils.MouseWorldPosition;
-        GameManager.Instance.NodesManager.CreateNode(ChangeMap[buttonType], pos);
+        GameManager.Instance.NodesManager.CreateNode(buttonType, pos);
         //IsPlacingNode = false;
     }
 

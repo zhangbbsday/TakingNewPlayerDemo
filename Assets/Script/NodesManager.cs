@@ -68,7 +68,7 @@ public class NodesManager
 
     public Node GetMouseNearestNode(float selectRange = 0.5f)
     {
-        Node[] nodes = GameManager.Instance.NodesManager.GetNodes();
+        Node[] nodes = GetNodes();
         if (nodes == null || nodes.Length == 0)
             return null;
 

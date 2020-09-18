@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class ResourcesManager
     private Dictionary<string, Node> Nodes { get; } = new Dictionary<string, Node>();
     private Dictionary<string, Link> Links { get; } = new Dictionary<string, Link>();
     private Dictionary<string, EnemyContainer> EnemyContainers { get; } = new Dictionary<string, EnemyContainer>();
+    private Dictionary<string, Arrow> Arrows { get; } = new Dictionary<string, Arrow>();
 
     private string[] NodesPath { get; } =
     {
@@ -25,6 +27,12 @@ public class ResourcesManager
         "Prefabs/Enemies/EnemyContainer",
     };
 
+    private string[] ArrowsPath { get; } =
+    {
+       "Prefabs/Arrows/AttackArrow",
+       "Prefabs/Arrows/ReturnArrow",
+    };
+
     public ResourcesManager()
     {
         Load();
@@ -35,6 +43,7 @@ public class ResourcesManager
         LoadNodes();
         LoadLinks();
         LoadEnemies();
+        LoadArrows();
     }
 
     public Node GetNode(string name)
@@ -46,9 +55,15 @@ public class ResourcesManager
     {
         return Links.ContainsKey(name) ? Links[name] : null;
     }
+
     public EnemyContainer GetEnemyContainer(string name)
     {
         return EnemyContainers.ContainsKey(name) ? EnemyContainers[name] : null;
+    }
+
+    public Arrow GetArrow(string name)
+    {
+        return Arrows.ContainsKey(name) ? Arrows[name] : null;
     }
 
     private void LoadNodes()
@@ -87,6 +102,19 @@ public class ResourcesManager
                 throw new System.Exception($"存在重名文件{obj.name}!");
 
             EnemyContainers.Add(obj.name, obj);
+        }
+    }
+
+    private void LoadArrows()
+    {
+        foreach (var path in ArrowsPath)
+        {
+            Arrow obj = Resources.Load<Arrow>(path);
+
+            if (Arrows.ContainsKey(obj.name))
+                throw new System.Exception($"存在重名文件{obj.name}!");
+
+            Arrows.Add(obj.name, obj);
         }
     }
 }

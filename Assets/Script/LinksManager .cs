@@ -55,7 +55,7 @@ public class LinksManager
 
     public Link GetMouseNearestLink(float selectRange = 0.5f)
     {
-        Link[] links = GameManager.Instance.LinksManager.GetLinks();
+        Link[] links = GetLinks();
         if (links == null || links.Length == 0)
             return null;
 

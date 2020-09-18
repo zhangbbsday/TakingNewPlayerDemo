@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public NodesManager NodesManager { get; private set; }
     public LinksManager LinksManager { get; private set; }
     public EnemyContainerManager EnemyContainerManager { get; private set; }
+    public ArrowsManager ArrowsManager { get; private set; }
 
     private void Awake()
     {
@@ -40,5 +41,6 @@ public class GameManager : MonoBehaviour
         NodesManager = new NodesManager();
         LinksManager = new LinksManager();
         EnemyContainerManager = new EnemyContainerManager();
+        ArrowsManager = new ArrowsManager();
     }
 }
