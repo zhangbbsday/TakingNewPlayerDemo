@@ -17,6 +17,7 @@ public class EnemyContainerManager
     private Dictionary<int, EnemyContainer> EnemyContainers { get; } = new Dictionary<int, EnemyContainer>();
     private Dictionary<string, EnemyType> EnemyNameToType { get; } = new Dictionary<string, EnemyType>
     {
+        ["空(间隔)"] = EnemyType.None,
         ["小怪"] = EnemyType.NormalEnemy,
         ["大块头"] = EnemyType.BigEnemy,
     };
