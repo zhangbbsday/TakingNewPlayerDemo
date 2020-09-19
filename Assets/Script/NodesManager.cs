@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
-public class NodesManager
+public class NodesManager : IXmlDataSave
 {
     public Transform NodesParent { get; private set; }
     private int GlobalIndex { get => globalIndex++; }
@@ -150,5 +151,45 @@ public class NodesManager
 
         NodesParent = obj.transform;
         NodesParent.transform.position = Vector2.zero;
+    }
+
+    public XElement GetXmlData()
+    {
+        XElement root = new XElement("nodes");
+        SetAllNodes(root);
+        SetEntrance(root);
+
+        return root;
+    }
+
+    private void SetAllNodes(XElement root)
+    {
+        XElement node = new XElement("allnodes");
+
+        foreach (var n in Nodes)
+        {
+            node.Add(new XElement("node",
+                        new XElement("id", n.Value.Id),
+                        new XElement("x", n.Value.Position.x),
+                        new XElement("y", n.Value.Position.y)));
+        }
+
+        root.Add(node);
+    }
+
+    private void SetEntrance(XElement root)
+    {
+        XElement node = new XElement("entrancenodes");
+        if (StartNode != null)
+            node.Add(new XElement("startnode", StartNode.Id));
+        if (EndNode != null)
+            node.Add(new XElement("endnode", EndNode.Id));
+
+        root.Add(node);
+    }
+
+    public void LoadXmlData(XmlDataContainer dataContainer)
+    {
+        
     }
 }

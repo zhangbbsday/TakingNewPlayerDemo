@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
-public class ArrowsManager
+public class ArrowsManager : IXmlDataSave
 {
     public Transform ArrowsParent { get; private set; }
     private int[] ArrowsCount { get; set; } = new int[2];
@@ -70,7 +71,6 @@ public class ArrowsManager
     public void ChangeArrowCount(Arrow.ArrowType type, int value)
     {
         ArrowsCount[(int)type] = value;
-        Debug.Log($"{type} : {value}");
     }
 
     private void SetArrow(Arrow arrow)
@@ -93,5 +93,44 @@ public class ArrowsManager
 
         ArrowsParent = obj.transform;
         ArrowsParent.transform.position = Vector2.zero;
+    }
+
+    public XElement GetXmlData()
+    {
+        XElement root = new XElement("arrows");
+
+        SetAllArrow(root);
+        SetAllArrowCount(root);
+        return root;
+    }
+
+    private void SetAllArrow(XElement root)
+    {
+        XElement element = new XElement("allarrows");
+
+        foreach (var arrow in Arrows)
+        {
+            element.Add(new XElement("arrow",
+                            new XElement("type", (int)arrow.Value.Type),
+                            new XElement("x", arrow.Value.Position.x),
+                            new XElement("y", arrow.Value.Position.y),
+                            new XElement("direction", arrow.Value.Angle)));
+        }
+
+        root.Add(element);
+    }
+
+    private void SetAllArrowCount(XElement root)
+    {
+        XElement element = new XElement("userarrowcount");
+        element.Add(new XElement("attackarrow", ArrowsCount[(int)Arrow.ArrowType.AttackArrow]));
+        element.Add(new XElement("returnarrow", ArrowsCount[(int)Arrow.ArrowType.ReturnArrow]));
+
+        root.Add(element);
+    }
+
+    public void LoadXmlData(XmlDataContainer dataContainer)
+    {
+        
     }
 }

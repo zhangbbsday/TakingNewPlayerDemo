@@ -29,7 +29,15 @@ public class FileContainerManager
    
     public FileContainer[] CreateAllFileContainers()
     {
-        return null;
+        var filesInfo = GameManager.Instance.BuildManager.GetAllFileInfo();
+        List<FileContainer> containers = new List<FileContainer>();
+        foreach (var file in filesInfo)
+        {
+            var container = CreateFileContainer(file.Name, file.LastWriteTime.ToString());
+            containers.Add(container);
+        }
+
+        return containers.ToArray();
     }
 
     public void DeleteFileContainer(FileContainer container)

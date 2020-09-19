@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
-public class EnemyContainerManager
+public class EnemyContainerManager : IXmlDataSave
 {
     public enum EnemyType
     {
@@ -85,5 +86,27 @@ public class EnemyContainerManager
         {
             Debug.Log("请检查是否正确设置了EnemiesView.");
         }
+    }
+
+    public XElement GetXmlData()
+    {
+        XElement root = new XElement("enemies");
+
+        SetAllEnemies(root);
+        return root;
+    }
+
+    private void SetAllEnemies(XElement root)
+    {
+        foreach (var enemy in EnemyContainers)
+        {
+            root.Add(new XElement("enemy",
+                        new XElement("type", (int)enemy.Value.GetEnemyType())));
+        }
+    }
+
+    public void LoadXmlData(XmlDataContainer dataContainer)
+    {
+        
     }
 }

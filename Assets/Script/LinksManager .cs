@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
-public class LinksManager
+public class LinksManager : IXmlDataSave
 {
     public Transform LinksParent { get; private set; }
     private string LinksParentName { get; } = "Links";
@@ -102,6 +103,30 @@ public class LinksManager
 
         LinksParent = obj.transform;
         LinksParent.transform.position = Vector2.zero;
+    }
+
+    public XElement GetXmlData()
+    {
+        XElement root = new XElement("links");
+        SetAllLinks(root);
+
+        return root;
+    }
+
+    private void SetAllLinks(XElement root)
+    {
+        foreach (var link in Links)
+        {
+            var nodes = link.Value.GetNodes();
+            root.Add(new XElement("links",
+                new XElement("start", nodes.Key.Id),
+                new XElement("end", nodes.Value.Id)));
+        }
+    }
+
+    public void LoadXmlData(XmlDataContainer dataContainer)
+    {
+        
     }
 }
 

@@ -1,16 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class LoadFileButton : MenuButton
+public class LoadFileButton : ButtonBase
 {
-    public override void PressAction()
+    protected override Action AddMethod()
     {
-        throw new System.NotImplementedException();
+        return () => PressAction();
     }
 
-    public override void ReleseAction()
+    protected override ButtonManager.ButtonEffectType SetButtonEffect()
     {
-        throw new System.NotImplementedException();
+        return ButtonManager.ButtonEffectType.NormalEffect;
+    }
+
+    public void PressAction()
+    {
+        var container = Transform.parent.GetComponent<FileContainer>();
+        GameManager.Instance.BuildManager.LoadFile(container.FileName);
+
+        Debug.Log("文件读取成功!");
     }
 }

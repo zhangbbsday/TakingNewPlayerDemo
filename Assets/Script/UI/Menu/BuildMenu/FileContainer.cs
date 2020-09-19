@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class FileContainer : UIElementBase
 {
     public int Id { get; private set; }
-    private string FileName { get; set; }
-    private string FileUpdateDate { get; set; }
+    public string FileName { get; private set; }
+    public string FileUpdateDate { get; private set; }
 
     private Text FileNameText { get; set; }
     private Text FileUpdateDateText { get; set; }
@@ -31,5 +31,8 @@ public class FileContainer : UIElementBase
     {
         FileNameText = Transform.Find("FileName").GetComponent<Text>();
         FileUpdateDateText = Transform.Find("UpdateDate").GetComponent<Text>();
+
+        FileNameText.text = FileName;
+        FileUpdateDateText.text = FileUpdateDate;
     }
 }

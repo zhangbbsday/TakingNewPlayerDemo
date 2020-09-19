@@ -13,6 +13,7 @@ public class Arrow : GameActor, ISelectableActor
     public int Id { get; private set; }
     public Vector2 Position { get; set; }
     public Vector2 Direction { get; private set; }
+    public float Angle { get; private set; }
     public ArrowType Type { get; private set; }
     private float SelectedSize { get; } = 0.2f;
     private Vector2 StartScale { get; set; }
@@ -53,7 +54,7 @@ public class Arrow : GameActor, ISelectableActor
     public void SetDirection(Vector2 direction)
     {
         Direction = direction;
-        float angle = Vector2.SignedAngle(Vector2.up, Direction);
-        Transform.eulerAngles = new Vector3(Transform.eulerAngles.x, Transform.eulerAngles.y, angle);
+        Angle = Vector2.SignedAngle(Vector2.up, Direction);
+        Transform.eulerAngles = new Vector3(Transform.eulerAngles.x, Transform.eulerAngles.y, Angle);
     }
 }
