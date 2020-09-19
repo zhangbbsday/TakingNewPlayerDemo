@@ -9,6 +9,7 @@ public class ResourcesManager
     private Dictionary<string, Link> Links { get; } = new Dictionary<string, Link>();
     private Dictionary<string, EnemyContainer> EnemyContainers { get; } = new Dictionary<string, EnemyContainer>();
     private Dictionary<string, Arrow> Arrows { get; } = new Dictionary<string, Arrow>();
+    private Dictionary<string, FileContainer> FileContainers { get; } = new Dictionary<string, FileContainer>();
 
     private string[] NodesPath { get; } =
     {
@@ -33,6 +34,11 @@ public class ResourcesManager
        "Prefabs/Arrows/ReturnArrow",
     };
 
+    private string[] FilesContainerPath { get; } =
+    {
+        "Prefabs/Files/FileContainer",
+    };
+
     public ResourcesManager()
     {
         Load();
@@ -44,6 +50,7 @@ public class ResourcesManager
         LoadLinks();
         LoadEnemies();
         LoadArrows();
+        LoadFileContainers();
     }
 
     public Node GetNode(string name)
@@ -64,6 +71,11 @@ public class ResourcesManager
     public Arrow GetArrow(string name)
     {
         return Arrows.ContainsKey(name) ? Arrows[name] : null;
+    }
+
+    public FileContainer GetFileContainer(string name)
+    {
+        return FileContainers.ContainsKey(name) ? FileContainers[name] : null;
     }
 
     private void LoadNodes()
@@ -115,6 +127,19 @@ public class ResourcesManager
                 throw new System.Exception($"存在重名文件{obj.name}!");
 
             Arrows.Add(obj.name, obj);
+        }
+    }
+
+    private void LoadFileContainers()
+    {
+        foreach (var path in FilesContainerPath)
+        {
+            FileContainer obj = Resources.Load<FileContainer>(path);
+
+            if (Arrows.ContainsKey(obj.name))
+                throw new System.Exception($"存在重名文件{obj.name}!");
+
+            FileContainers.Add(obj.name, obj);
         }
     }
 }

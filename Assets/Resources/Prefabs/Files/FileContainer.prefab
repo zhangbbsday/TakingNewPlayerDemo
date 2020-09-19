@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 181049808960609713}
   - component: {fileID: 181049808960609719}
   - component: {fileID: 181049808960609712}
+  - component: {fileID: -3278103686466699916}
   m_Layer: 5
   m_Name: FileContainer
   m_TagString: Untagged
@@ -155,6 +156,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-3278103686466699916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181049808960609714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841e90949a8e351449d742a5210f2dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181049809693333146
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +336,7 @@ GameObject:
   - component: {fileID: 181049810768671823}
   - component: {fileID: 181049810768671816}
   - component: {fileID: 181049810768671817}
+  - component: {fileID: 207780036156647147}
   m_Layer: 5
   m_Name: LoadFileButton
   m_TagString: Untagged
@@ -430,3 +444,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &207780036156647147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181049810768671828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053abd45415f97142865cfb1c790ab52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
