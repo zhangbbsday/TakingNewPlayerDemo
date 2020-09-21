@@ -18,7 +18,6 @@ public class BuildButton : MenuButton
     protected override void Start()
     {
         base.Start();
-        menu.Close();
     }
 
     public override void PressAction()
@@ -61,12 +60,14 @@ public class BuildButton : MenuButton
 
     private void ReadFilesIn()
     {
-        GameManager.Instance.FileContainerManager.CreateAllFileContainers();
+        if (GameManager.Instance != null)
+            GameManager.Instance.FileContainerManager.CreateAllFileContainers();
     }
 
     private void ReadFilesOut()
     {
-        GameManager.Instance.FileContainerManager.DeleteAllFileConatiner();
+        if (GameManager.Instance != null)
+            GameManager.Instance.FileContainerManager.DeleteAllFileConatiner();
     }
 
     private void WriteFilesIn()

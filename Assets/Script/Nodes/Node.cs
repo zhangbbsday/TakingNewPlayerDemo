@@ -13,7 +13,7 @@ public class Node : GameActor, ISelectableActor
 
     public int Id { get; private set; }
     public Vector2 Position { get; set; }
-    public NodeType Type { get; private set; }
+    public NodeType Type { get; set; }
     private float SelectedSize { get; } = 0.2f;
 
     public void Init(int id, Vector2 pos, NodeType type)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class NodesManager : IXmlDataSave
@@ -28,13 +29,13 @@ public class NodesManager : IXmlDataSave
         globalIndex = 0;
     }
 
-    public Node CreateNode(Node.NodeType type, Vector2 position)
+    public Node CreateNode(Node.NodeType type, Vector2 position, int id = -1)
     {
         string nodeName = NodesName[(int)type];
 
         Node node = GameManager.Instance.ResourcesManager.GetNode(nodeName);
         node = GameObject.Instantiate(node, position, Quaternion.identity, NodesParent);
-        node.Init(GlobalIndex, position, type);
+        node.Init(id == -1 ? GlobalIndex : id, position, type);
 
         SetNode(node);
 
@@ -203,6 +204,53 @@ public class NodesManager : IXmlDataSave
 
     public void LoadXmlData(XmlDataContainer dataContainer)
     {
-        
+        SetDefaultState();
+        try
+        {
+            LoadAllNodes(dataContainer);
+            LoadEntrance(dataContainer);
+        }
+        catch
+        {
+            Debug.Log("读取的XML文件残损或格式有误!");
+        }
+    }
+
+    private void SetDefaultState()
+    {
+        DeleteAllNodes();
+    }
+
+    private void LoadAllNodes(XmlDataContainer dataContainer)
+    {
+        var nodes = from node in dataContainer.Document.Root.Element("nodes").Element("allnodes").Elements()
+                    select new
+                    {
+                        Id = node.Element("id").Value,
+                        X = node.Element("x").Value,
+                        Y = node.Element("y").Value,
+                    };
+
+        foreach (var n in nodes)
+        {
+            CreateNode(Node.NodeType.NormalNode, new Vector2(float.Parse(n.X), float.Parse(n.Y)), int.Parse(n.Id));
+            globalIndex = Mathf.Max(int.Parse(n.Id), globalIndex);
+        }
+        globalIndex++;
+    }
+
+    private void LoadEntrance(XmlDataContainer dataContainer)
+    {
+        var root = dataContainer.Document.Root.Element("nodes").Element("entrancenodes");
+        int StartNodeId = int.Parse(root.Element("startnode").Value);
+        int EndNodeId = int.Parse(root.Element("endnode").Value);
+
+        Vector2 tempPosition = Nodes[StartNodeId].Position;
+        DeleteNode(Nodes[StartNodeId]);
+        CreateNode(Node.NodeType.StartNode, tempPosition, StartNodeId);
+
+        tempPosition = Nodes[EndNodeId].Position;
+        DeleteNode(Nodes[EndNodeId]);
+        CreateNode(Node.NodeType.EndNode, tempPosition, EndNodeId);
     }
 }

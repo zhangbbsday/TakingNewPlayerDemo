@@ -14,7 +14,7 @@ public class Arrow : GameActor, ISelectableActor
     public Vector2 Position { get; set; }
     public Vector2 Direction { get; private set; }
     public float Angle { get; private set; }
-    public ArrowType Type { get; private set; }
+    public ArrowType Type { get; set; }
     private float SelectedSize { get; } = 0.2f;
     private Vector2 StartScale { get; set; }
 

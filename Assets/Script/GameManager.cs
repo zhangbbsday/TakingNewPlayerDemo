@@ -2,21 +2,7 @@
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instacne == null)
-            {
-                GameObject obj = new GameObject("GameManager");
-                instacne = obj.AddComponent<GameManager>();
-            }
-             
-            return instacne;
-        }
-    }
-    private static GameManager instacne;
-
+    public static GameManager Instance { get; private set; }
     public ResourcesManager ResourcesManager { get; private set; }
     public NodesManager NodesManager { get; private set; }
     public LinksManager LinksManager { get; private set; }
@@ -28,8 +14,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         SetManagers();
+        SetMono();
 
-        instacne = this;
+        Instance = this;
     }
 
     private void Start()
@@ -46,5 +33,11 @@ public class GameManager : MonoBehaviour
         ArrowsManager = new ArrowsManager();
         FileContainerManager = new FileContainerManager();
         BuildManager = new BuildManager();
+    }
+
+    private void SetMono()
+    {
+        Mono.CreateOne();
+        CoroutineUtils.SetMono(Mono.Instance);
     }
 }

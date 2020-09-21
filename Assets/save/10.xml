@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game>
+  <nodes>
+    <allnodes>
+      <node>
+        <id>0</id>
+        <x>-3.848921</x>
+        <y>1.594724</y>
+      </node>
+      <node>
+        <id>1</id>
+        <x>0.0359715372</x>
+        <y>-0.7553953</y>
+      </node>
+      <node>
+        <id>7</id>
+        <x>2.14628339</x>
+        <y>-1.714628</y>
+      </node>
+      <node>
+        <id>8</id>
+        <x>-4.80815363</x>
+        <y>-0.923261344</y>
+      </node>
+      <node>
+        <id>4</id>
+        <x>2.242206</x>
+        <y>-0.347721577</y>
+      </node>
+      <node>
+        <id>5</id>
+        <x>-0.4916064</x>
+        <y>-1.714628</y>
+      </node>
+      <node>
+        <id>6</id>
+        <x>-2.242206</x>
+        <y>0.419664979</y>
+      </node>
+      <node>
+        <id>9</id>
+        <x>1.64268613</x>
+        <y>2.45803356</y>
+      </node>
+      <node>
+        <id>10</id>
+        <x>-7.73381329</x>
+        <y>2.31414914</y>
+      </node>
+      <node>
+        <id>11</id>
+        <x>-7.06235075</x>
+        <y>-1.52278161</y>
+      </node>
+      <node>
+        <id>12</id>
+        <x>-2.31414866</x>
+        <y>-2.07434058</y>
+      </node>
+    </allnodes>
+    <entrancenodes>
+      <startnode>7</startnode>
+      <endnode>8</endnode>
+    </entrancenodes>
+  </nodes>
+  <links />
+  <enemies />
+  <arrows>
+    <allarrows />
+    <userarrowcount>
+      <attackarrow>0</attackarrow>
+      <returnarrow>0</returnarrow>
+    </userarrowcount>
+  </arrows>
+</game>
