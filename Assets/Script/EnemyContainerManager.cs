@@ -47,6 +47,20 @@ public class EnemyContainerManager : IXmlDataSave
         GameObject.Destroy(container.GameObject);
     }
 
+    public void DeleteAllEnemyContainers()
+    {
+        var objs = GetEnemyContainers();
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i] == null)
+                continue;
+
+            DeleteEnemyContainer(objs[i]);
+        }
+    }
+
+
     public EnemyContainer[] GetEnemyContainers()
     {
         return EnemyContainers.Values.ToArray();

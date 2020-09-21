@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 public class XmlDataContainer
 {
-    private XDocument Document { get; set; } = new XDocument();
+    public XDocument Document { get; private set; } = new XDocument();
 
     public XmlDataContainer()
     {

@@ -47,6 +47,19 @@ public class NodesManager : IXmlDataSave
         GameObject.Destroy(node.GameObject);
     }
 
+    public void DeleteAllNodes() 
+    {
+        var objs = GetNodes();
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i] == null)
+                continue;
+
+            DeleteNode(objs[i]);
+        }
+    }
+
     public bool HasNodeTypeExisted(Node.NodeType type)
     {
         switch (type)

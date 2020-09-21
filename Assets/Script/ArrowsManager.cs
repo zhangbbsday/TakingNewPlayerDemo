@@ -44,6 +44,19 @@ public class ArrowsManager : IXmlDataSave
         GameObject.Destroy(arrow.GameObject);
     }
 
+    public void DeleteAllArrows()
+    {
+        var objs = GetArrows();
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i] == null)
+                continue;
+
+            DeleteArrow(objs[i]);
+        }
+    }
+
     public Arrow[] GetArrows()
     {
         return Arrows.Values.ToArray();

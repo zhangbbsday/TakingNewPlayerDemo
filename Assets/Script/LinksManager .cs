@@ -49,6 +49,19 @@ public class LinksManager : IXmlDataSave
         }
     }
 
+    public void DeleteAllLinks()
+    {
+        var objs = GetLinks();
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i] == null)
+                continue;
+
+            DeleteLink(objs[i]);
+        }
+    }
+
     public Link[] GetLinks()
     {
         return Links.Values.ToArray();
