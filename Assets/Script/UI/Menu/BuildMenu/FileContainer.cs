@@ -3,36 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FileContainer : UIElementBase
+namespace GameEditor
 {
-    public int Id { get; private set; }
-    public string FileName { get; private set; }
-    public string FileUpdateDate { get; private set; }
-
-    private Text FileNameText { get; set; }
-    private Text FileUpdateDateText { get; set; }
-
-    public void Init(int id, string fileName, string updateDate)
+    public class FileContainer : UIElementBase
     {
-        Id = id;
-        FileName = fileName;
-        FileUpdateDate = updateDate;
-    }
+        public int Id { get; private set; }
+        public string FileName { get; private set; }
+        public string FileUpdateDate { get; private set; }
 
-    protected override void Start()
-    {
-        base.Start();
-        CanChangePosition = false;
+        private Text FileNameText { get; set; }
+        private Text FileUpdateDateText { get; set; }
 
-        SetText();
-    }
+        public void Init(int id, string fileName, string updateDate)
+        {
+            Id = id;
+            FileName = fileName;
+            FileUpdateDate = updateDate;
+        }
 
-    private void SetText() 
-    {
-        FileNameText = Transform.Find("FileName").GetComponent<Text>();
-        FileUpdateDateText = Transform.Find("UpdateDate").GetComponent<Text>();
+        protected override void Start()
+        {
+            base.Start();
+            CanChangePosition = false;
 
-        FileNameText.text = FileName;
-        FileUpdateDateText.text = FileUpdateDate;
+            SetText();
+        }
+
+        private void SetText()
+        {
+            FileNameText = Transform.Find("FileName").GetComponent<Text>();
+            FileUpdateDateText = Transform.Find("UpdateDate").GetComponent<Text>();
+
+            FileNameText.text = FileName;
+            FileUpdateDateText.text = FileUpdateDate;
+        }
     }
 }

@@ -1,39 +1,42 @@
 ﻿using UnityEngine;
 
-public static class CoroutineUtils
+namespace GameEditor
 {
-    private static MonoBehaviour Mono { get; set; }
-    public static void StartCoroutine(this NewCoroutine coroutine)
+    public static class CoroutineUtils
     {
-        if (Mono == null)
-            return;
+        private static MonoBehaviour Mono { get; set; }
+        public static void StartCoroutine(this NewCoroutine coroutine)
+        {
+            if (Mono == null)
+                return;
 
-        coroutine.IsRunning = true;
-        Mono.StartCoroutine(coroutine.GetNewCoroutine());
-    }
-    public static void StopCoroutine(this NewCoroutine coroutine)
-    {
-        if (Mono == null)
-            return;
+            coroutine.IsRunning = true;
+            Mono.StartCoroutine(coroutine.GetNewCoroutine());
+        }
+        public static void StopCoroutine(this NewCoroutine coroutine)
+        {
+            if (Mono == null)
+                return;
 
-        coroutine.IsRunning = false;
-        Mono.StopCoroutine(coroutine.GetNewCoroutine());
-    }
-    public static void StopAllCoroutine()
-    {
-        if (Mono == null)
-            return;
+            coroutine.IsRunning = false;
+            Mono.StopCoroutine(coroutine.GetNewCoroutine());
+        }
+        public static void StopAllCoroutine()
+        {
+            if (Mono == null)
+                return;
 
-        Mono.StopAllCoroutines();
-    }
+            Mono.StopAllCoroutines();
+        }
 
-    public static bool IsCompleteOrEnd(this NewCoroutine coroutine)
-    {
-        return !coroutine.IsRunning;
-    }
+        public static bool IsCompleteOrEnd(this NewCoroutine coroutine)
+        {
+            return !coroutine.IsRunning;
+        }
 
-    public static void SetMono(Mono mono)
-    {
-        Mono = mono;
+        public static void SetMono(Mono mono)
+        {
+            Mono = mono;
+        }
     }
 }

@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameActor : MonoBehaviour
+namespace GameEditor
 {
-    public Transform Transform { get; private set; }
-    public GameObject GameObject { get; private set; }
-
-    protected virtual void Awake()
+    public abstract class GameActor : MonoBehaviour
     {
-        Initialization();
-    }
+        public Transform Transform { get; private set; }
+        public GameObject GameObject { get; private set; }
 
-    protected virtual void Start()
-    {
+        protected virtual void Awake()
+        {
+            Initialization();
+        }
 
-    }
+        protected virtual void Start()
+        {
 
-    protected virtual void Update()
-    {
-        
-    }
+        }
 
-    private void Initialization()
-    {
-        Transform = transform;
-        GameObject = gameObject;
+        protected virtual void Update()
+        {
+
+        }
+
+        private void Initialization()
+        {
+            Transform = transform;
+            GameObject = gameObject;
+        }
     }
 }

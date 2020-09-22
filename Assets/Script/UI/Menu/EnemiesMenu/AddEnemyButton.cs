@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddEnemyButton : MenuButton
+namespace GameEditor
 {
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
+    public class AddEnemyButton : MenuButton
     {
-        return ButtonManager.ButtonEffectType.NoTextEffect;
-    }
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NoTextEffect;
+        }
 
-    private void CreateEnemyContainer()
-    {
-        GameManager.Instance.EnemyContainerManager.CreateEnemyContainer();
-    }
+        private void CreateEnemyContainer()
+        {
+            GameManager.Instance.EnemyContainerManager.CreateEnemyContainer();
+        }
 
-    public override void PressAction()
-    {
-        CreateEnemyContainer();
-    }
+        public override void PressAction()
+        {
+            CreateEnemyContainer();
+        }
 
-    public override void ReleseAction()
-    {
-        
+        public override void ReleseAction()
+        {
+
+        }
     }
 }

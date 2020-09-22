@@ -1,38 +1,39 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SaveFileButton : ButtonBase
+namespace GameEditor
 {
-    protected override Action AddMethod()
+    public class SaveFileButton : ButtonBase
     {
-        return () => PressAction();
-    }
+        protected override Action AddMethod()
+        {
+            return () => PressAction();
+        }
 
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
-    {
-        return ButtonManager.ButtonEffectType.NormalEffect;
-    }
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NormalEffect;
+        }
 
-    public void PressAction()
-    {
-        var input = Transform.parent.Find("Input").GetComponent<InputField>();
-        string path = GetInnocentPath(input.text);
+        public void PressAction()
+        {
+            var input = Transform.parent.Find("Input").GetComponent<InputField>();
+            string path = GetInnocentPath(input.text);
 
-        GameManager.Instance.BuildManager.SaveFile(path);
-        Debug.Log("文件保存成功!");
-    }
+            GameManager.Instance.BuildManager.SaveFile(path);
+            Debug.Log("文件保存成功!");
+        }
 
-    private string GetInnocentPath(string path)
-    {
-        StringBuilder builder = new StringBuilder(path);
-        foreach (char c in Path.GetInvalidFileNameChars())
-            builder = builder.Replace(c.ToString(), string.Empty);
+        private string GetInnocentPath(string path)
+        {
+            StringBuilder builder = new StringBuilder(path);
+            foreach (char c in Path.GetInvalidFileNameChars())
+                builder = builder.Replace(c.ToString(), string.Empty);
 
-        return builder.ToString();
+            return builder.ToString();
+        }
     }
 }

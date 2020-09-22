@@ -2,67 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeletePathButton : MenuButton
+namespace GameEditor
 {
-    private bool IsSelecting { get; set; }
-    private float SelectRange { get; } = 0.3f;
-    private Link SelectedOne { get; set; }
-
-
-    protected override void Update()
+    public class DeletePathButton : MenuButton
     {
-        base.Update();
-        DeleteLink();
-    }
-
-    private void DeleteLink()
-    {
-        if (!IsSelecting)
-            return;
-
-        Link link = FindNearestLik();
-        SelectEffect(link);
-        if (link == null)
-            return;
-
-        if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
-            DeleteOne(link);
-    }
+        private bool IsSelecting { get; set; }
+        private float SelectRange { get; } = 0.3f;
+        private Link SelectedOne { get; set; }
 
 
-    private Link FindNearestLik()
-    {
-        return GameManager.Instance.LinksManager.GetMouseNearestLink(SelectRange);
-    }
+        protected override void Update()
+        {
+            base.Update();
+            DeleteLink();
+        }
 
-    private void SelectEffect(Link link)
-    {
-        if (SelectedOne == link)
-            return;
+        private void DeleteLink()
+        {
+            if (!IsSelecting)
+                return;
 
-        if (SelectedOne != null)
-            SelectedOne.ReleaseEffect();
+            Link link = FindNearestLik();
+            SelectEffect(link);
+            if (link == null)
+                return;
 
-        SelectedOne = link;
-        if (SelectedOne != null)
-            SelectedOne.SelectEffect();
-    }
+            if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
+                DeleteOne(link);
+        }
 
-    private void DeleteOne(Link link)
-    {
-        GameManager.Instance.LinksManager.DeleteLink(link);
-        //IsSelecting = false;
-    }
 
-    public override void PressAction()
-    {
-        IsSelecting = true;
-        SelectedOne = null;
-    }
+        private Link FindNearestLik()
+        {
+            return GameManager.Instance.LinksManager.GetMouseNearestLink(SelectRange);
+        }
 
-    public override void ReleseAction()
-    {
-        IsSelecting = false;
-        SelectedOne = null;
+        private void SelectEffect(Link link)
+        {
+            if (SelectedOne == link)
+                return;
+
+            if (SelectedOne != null)
+                SelectedOne.ReleaseEffect();
+
+            SelectedOne = link;
+            if (SelectedOne != null)
+                SelectedOne.SelectEffect();
+        }
+
+        private void DeleteOne(Link link)
+        {
+            GameManager.Instance.LinksManager.DeleteLink(link);
+            //IsSelecting = false;
+        }
+
+        public override void PressAction()
+        {
+            IsSelecting = true;
+            SelectedOne = null;
+        }
+
+        public override void ReleseAction()
+        {
+            IsSelecting = false;
+            SelectedOne = null;
+        }
     }
 }

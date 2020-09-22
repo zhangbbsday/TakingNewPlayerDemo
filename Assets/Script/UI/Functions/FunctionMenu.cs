@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FunctionMenu : UIElementBase
+namespace GameEditor
 {
-    protected override void Start()
+    public class FunctionMenu : UIElementBase
     {
-        base.Start();
-        Close();
-    }
+        protected override void Start()
+        {
+            base.Start();
+            Close();
+        }
 
-    public void Show()
-    {
-        GameObject.SetActive(true);
-    }
+        public void Show()
+        {
+            GameObject.SetActive(true);
+        }
 
-    public void Close()
-    {
-        GameObject.SetActive(false);
+        public void Close()
+        {
+            GameObject.SetActive(false);
+        }
     }
 }

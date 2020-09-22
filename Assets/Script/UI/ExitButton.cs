@@ -4,35 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ExitButton : ButtonBase
+namespace GameEditor
 {
-    protected override void Start()
+    public class ExitButton : ButtonBase
     {
-        base.Start();
-        CanChangePosition = false;
-    }
-
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
-    {
-        return ButtonManager.ButtonEffectType.NormalEffect;
-    }
-    protected override Action AddMethod()
-    {
-        return () => Exit();
-    }
-    private void Exit()
-    {
-        if (ButtonManager.Instance.FunctionButtonActiveNow != null)
+        protected override void Start()
         {
-            ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
-            ButtonManager.Instance.FunctionButtonActiveNow = null;
-            return;
+            base.Start();
+            CanChangePosition = false;
         }
 
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NormalEffect;
+        }
+        protected override Action AddMethod()
+        {
+            return () => Exit();
+        }
+        private void Exit()
+        {
+            if (ButtonManager.Instance.FunctionButtonActiveNow != null)
+            {
+                ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
+                ButtonManager.Instance.FunctionButtonActiveNow = null;
+                return;
+            }
+
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
 		Application.Quit();
 #endif
+        }
     }
 }

@@ -1,71 +1,74 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public class BuildManager
+namespace GameEditor
 {
-    public string FileSavePath { get; } = Application.dataPath + @"/save";
-
-    public BuildManager()
+    public class BuildManager
     {
-        CheckDirectory();
-    }
+        public string FileSavePath { get; } = Application.dataPath + @"/save";
 
-    public FileInfo[] GetAllFileInfo()
-    {
-        DirectoryInfo folder = new DirectoryInfo(FileSavePath);
-        return folder.GetFiles("*.xml");
-    }
+        public BuildManager()
+        {
+            CheckDirectory();
+        }
 
-    public string[] GetAllFilePath()
-    {
-        return Directory.GetFiles(FileSavePath, ".xml");
-    }
+        public FileInfo[] GetAllFileInfo()
+        {
+            DirectoryInfo folder = new DirectoryInfo(FileSavePath);
+            return folder.GetFiles("*.xml");
+        }
 
-    public void LoadFile(string fileName)
-    {
-        string path = FileSavePath + "/" + GetXmlFileName(fileName);
+        public string[] GetAllFilePath()
+        {
+            return Directory.GetFiles(FileSavePath, ".xml");
+        }
 
-        XmlDataContainer dataContainer = new XmlDataContainer();
-        dataContainer.ReadXml(path);
-        LoadAllData(dataContainer);
-    }
+        public void LoadFile(string fileName)
+        {
+            string path = FileSavePath + "/" + GetXmlFileName(fileName);
 
-    public void SaveFile(string fileName)
-    {
-        string path = FileSavePath + "/" + GetXmlFileName(fileName);
+            XmlDataContainer dataContainer = new XmlDataContainer();
+            dataContainer.ReadXml(path);
+            LoadAllData(dataContainer);
+        }
 
-        XmlDataContainer dataContainer = new XmlDataContainer();
-        SaveAllData(dataContainer);
-        dataContainer.SaveXml(path);
-    }
+        public void SaveFile(string fileName)
+        {
+            string path = FileSavePath + "/" + GetXmlFileName(fileName);
 
-    private string GetXmlFileName(string fileName)
-    {
-        if (fileName.EndsWith(".xml"))
-            return fileName;
+            XmlDataContainer dataContainer = new XmlDataContainer();
+            SaveAllData(dataContainer);
+            dataContainer.SaveXml(path);
+        }
 
-        return fileName + ".xml";
-    }
+        private string GetXmlFileName(string fileName)
+        {
+            if (fileName.EndsWith(".xml"))
+                return fileName;
 
-    private void LoadAllData(XmlDataContainer dataContainer)
-    {
-        GameManager.Instance.NodesManager.LoadXmlData(dataContainer);
-        GameManager.Instance.LinksManager.LoadXmlData(dataContainer);
-        GameManager.Instance.EnemyContainerManager.LoadXmlData(dataContainer);
-        GameManager.Instance.ArrowsManager.LoadXmlData(dataContainer);
-    }
+            return fileName + ".xml";
+        }
 
-    private void SaveAllData(XmlDataContainer dataContainer)
-    {
-        dataContainer.AddElement(GameManager.Instance.NodesManager.GetXmlData());
-        dataContainer.AddElement(GameManager.Instance.LinksManager.GetXmlData());
-        dataContainer.AddElement(GameManager.Instance.EnemyContainerManager.GetXmlData());
-        dataContainer.AddElement(GameManager.Instance.ArrowsManager.GetXmlData());
-    }
+        private void LoadAllData(XmlDataContainer dataContainer)
+        {
+            GameManager.Instance.NodesManager.LoadXmlData(dataContainer);
+            GameManager.Instance.LinksManager.LoadXmlData(dataContainer);
+            GameManager.Instance.EnemyContainerManager.LoadXmlData(dataContainer);
+            GameManager.Instance.ArrowsManager.LoadXmlData(dataContainer);
+        }
 
-    private void CheckDirectory()
-    {
-        if (!Directory.Exists(FileSavePath))
-            Directory.CreateDirectory(FileSavePath);
+        private void SaveAllData(XmlDataContainer dataContainer)
+        {
+            dataContainer.AddElement(GameManager.Instance.NodesManager.GetXmlData());
+            dataContainer.AddElement(GameManager.Instance.LinksManager.GetXmlData());
+            dataContainer.AddElement(GameManager.Instance.EnemyContainerManager.GetXmlData());
+            dataContainer.AddElement(GameManager.Instance.ArrowsManager.GetXmlData());
+        }
+
+        private void CheckDirectory()
+        {
+            if (!Directory.Exists(FileSavePath))
+                Directory.CreateDirectory(FileSavePath);
+        }
     }
 }

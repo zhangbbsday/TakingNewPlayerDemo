@@ -3,45 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MenuButton : ButtonBase
+namespace GameEditor
 {
-    protected override void Start()
+    public abstract class MenuButton : ButtonBase
     {
-        base.Start();
-        CanChangePosition = false;
-    }
-
-    protected override Action AddMethod()
-    {
-        return () => ButtonAction();
-    }
-
-    protected void OnDisable()
-    {
-        ReleseAction();
-
-        if (ButtonManager.Instance.MenuButtonActiveNow != null)
-            ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
-    }
-
-    public abstract void PressAction();
-    public abstract void ReleseAction();
-
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
-    {
-        return ButtonManager.ButtonEffectType.NormalEffect;
-    }
-
-    private void ButtonAction()
-    {
-        if (ButtonManager.Instance.MenuButtonActiveNow != null && ButtonManager.Instance.MenuButtonActiveNow.GameObject.activeSelf)
+        protected override void Start()
         {
-            ButtonManager.Instance.MenuButtonActiveNow.ReleseAction();
-            ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+            base.Start();
+            CanChangePosition = false;
         }
 
-        PressAction();
-        ButtonManager.Instance.MenuButtonActiveNow = this;
-        ButtonEffect.SelectedEffect();
+        protected override Action AddMethod()
+        {
+            return () => ButtonAction();
+        }
+
+        protected void OnDisable()
+        {
+            ReleseAction();
+
+            if (ButtonManager.Instance.MenuButtonActiveNow != null)
+                ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+        }
+
+        public abstract void PressAction();
+        public abstract void ReleseAction();
+
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NormalEffect;
+        }
+
+        private void ButtonAction()
+        {
+            if (ButtonManager.Instance.MenuButtonActiveNow != null && ButtonManager.Instance.MenuButtonActiveNow.GameObject.activeSelf)
+            {
+                ButtonManager.Instance.MenuButtonActiveNow.ReleseAction();
+                ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+            }
+
+            PressAction();
+            ButtonManager.Instance.MenuButtonActiveNow = this;
+            ButtonEffect.SelectedEffect();
+        }
     }
 }

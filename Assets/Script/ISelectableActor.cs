@@ -1,6 +1,9 @@
 ﻿
-public interface ISelectableActor
+namespace GameEditor
 {
-    void SelectEffect();
-    void ReleaseEffect();
+    public interface ISelectableActor
+    {
+        void SelectEffect();
+        void ReleaseEffect();
+    }
 }

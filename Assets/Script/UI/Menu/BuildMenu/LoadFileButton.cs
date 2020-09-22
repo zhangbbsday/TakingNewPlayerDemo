@@ -1,23 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-public class LoadFileButton : ButtonBase
+namespace GameEditor
 {
-    protected override Action AddMethod()
+    public class LoadFileButton : ButtonBase
     {
-        return () => PressAction();
-    }
+        protected override Action AddMethod()
+        {
+            return () => PressAction();
+        }
 
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
-    {
-        return ButtonManager.ButtonEffectType.NormalEffect;
-    }
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NormalEffect;
+        }
 
-    public void PressAction()
-    {
-        var container = Transform.parent.GetComponent<FileContainer>();
-        GameManager.Instance.BuildManager.LoadFile(container.FileName);
+        public void PressAction()
+        {
+            var container = Transform.parent.GetComponent<FileContainer>();
+            GameManager.Instance.BuildManager.LoadFile(container.FileName);
 
-        Debug.Log("文件读取成功!");
+            Debug.Log("文件读取成功!");
+        }
     }
 }

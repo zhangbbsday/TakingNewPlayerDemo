@@ -4,40 +4,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FunctionButton : ButtonBase
+namespace GameEditor
 {
-    [SerializeField]
-    private FunctionMenu menu;
-
-    protected override void Start()
+    public class FunctionButton : ButtonBase
     {
-        base.Start();   
-        CanChangePosition = false;
-    }
+        [SerializeField]
+        private FunctionMenu menu;
 
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
-    {
-        return ButtonManager.ButtonEffectType.NormalEffect;
-    }
+        protected override void Start()
+        {
+            base.Start();
+            CanChangePosition = false;
+        }
 
-    protected override Action AddMethod()
-    {
-        return () => ShowMenu();
-    }
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NormalEffect;
+        }
 
-    public void ShowMenu()
-    {
-        if (ButtonManager.Instance.FunctionButtonActiveNow != null)
-            ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
-        menu.Show();
-        ButtonManager.Instance.FunctionButtonActiveNow = this;
+        protected override Action AddMethod()
+        {
+            return () => ShowMenu();
+        }
 
-        ButtonEffect.SelectedEffect();
-    }
+        public void ShowMenu()
+        {
+            if (ButtonManager.Instance.FunctionButtonActiveNow != null)
+                ButtonManager.Instance.FunctionButtonActiveNow.CloseMenu();
+            menu.Show();
+            ButtonManager.Instance.FunctionButtonActiveNow = this;
 
-    public void CloseMenu()
-    {
-        menu.Close();
-        ButtonEffect.CancelEffect();
+            ButtonEffect.SelectedEffect();
+        }
+
+        public void CloseMenu()
+        {
+            menu.Close();
+            ButtonEffect.CancelEffect();
+        }
     }
 }

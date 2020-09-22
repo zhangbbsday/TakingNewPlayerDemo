@@ -4,37 +4,40 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class StartArrowsNumber : UIElementBase
+namespace GameEditor
 {
-    private InputField AttackArrowCount { get; set; }
-    private InputField ReturnArrowCount { get; set; }
-
-    protected override void Start()
+    public class StartArrowsNumber : UIElementBase
     {
-        base.Start();
-        CanChangePosition = false;
+        private InputField AttackArrowCount { get; set; }
+        private InputField ReturnArrowCount { get; set; }
 
-        SetInputField();
-    }
+        protected override void Start()
+        {
+            base.Start();
+            CanChangePosition = false;
 
-    private void SetInputField()
-    {
-        AttackArrowCount = Transform.Find("AttackArrowArea").Find("Input").GetComponent<InputField>();
-        ReturnArrowCount = Transform.Find("ReturnArrowArea").Find("Input").GetComponent<InputField>();
+            SetInputField();
+        }
 
-        AttackArrowCount.onValueChanged.AddListener((value) => AttackArrowValueChange(value));
-        ReturnArrowCount.onValueChanged.AddListener((value) => ReturnArrowValueChange(value));
-    }
+        private void SetInputField()
+        {
+            AttackArrowCount = Transform.Find("AttackArrowArea").Find("Input").GetComponent<InputField>();
+            ReturnArrowCount = Transform.Find("ReturnArrowArea").Find("Input").GetComponent<InputField>();
 
-    private void AttackArrowValueChange(string value)
-    {
-        int.TryParse(value, out int res);
-        GameManager.Instance.ArrowsManager.ChangeArrowCount(Arrow.ArrowType.AttackArrow, res);
-    }
+            AttackArrowCount.onValueChanged.AddListener((value) => AttackArrowValueChange(value));
+            ReturnArrowCount.onValueChanged.AddListener((value) => ReturnArrowValueChange(value));
+        }
 
-    private void ReturnArrowValueChange(string value)
-    {
-        int.TryParse(value, out int res);
-        GameManager.Instance.ArrowsManager.ChangeArrowCount(Arrow.ArrowType.ReturnArrow, res);
+        private void AttackArrowValueChange(string value)
+        {
+            int.TryParse(value, out int res);
+            GameManager.Instance.ArrowsManager.ChangeArrowCount(Arrow.ArrowType.AttackArrow, res);
+        }
+
+        private void ReturnArrowValueChange(string value)
+        {
+            int.TryParse(value, out int res);
+            GameManager.Instance.ArrowsManager.ChangeArrowCount(Arrow.ArrowType.ReturnArrow, res);
+        }
     }
 }

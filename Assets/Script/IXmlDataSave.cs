@@ -1,7 +1,10 @@
 ﻿using System.Xml.Linq;
 
-public interface IXmlDataSave
+namespace GameEditor
 {
-    XElement GetXmlData();
-    void LoadXmlData(XmlDataContainer dataContainer);
+    public interface IXmlDataSave
+    {
+        XElement GetXmlData();
+        void LoadXmlData(XmlDataContainer dataContainer);
+    }
 }

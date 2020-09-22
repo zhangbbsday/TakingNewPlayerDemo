@@ -3,42 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonManager
+namespace GameEditor
 {
-    public enum ButtonEffectType
+    public class ButtonManager
     {
-        None,
-        NormalEffect,
-        NoTextEffect,
-    }
-
-    public static ButtonManager Instance
-    {
-        get
+        public enum ButtonEffectType
         {
-            if (instacne == null)
-                instacne = new ButtonManager();
-            return instacne;
+            None,
+            NormalEffect,
+            NoTextEffect,
         }
-    }
-    private static ButtonManager instacne;
-    public FunctionButton FunctionButtonActiveNow { get; set; }
-    public MenuButton MenuButtonActiveNow { get; set; }
-    private Dictionary<ButtonEffectType, Type> Effects { get; } = new Dictionary<ButtonEffectType, Type>
-    {
-        [ButtonEffectType.None] = null,
-        [ButtonEffectType.NormalEffect] = typeof(NormalButtonEffect),
-        [ButtonEffectType.NoTextEffect] = typeof(NoTextButtonEffect),
-    };
-    private ButtonManager()
-    {
 
-    }
+        public static ButtonManager Instance
+        {
+            get
+            {
+                if (instacne == null)
+                    instacne = new ButtonManager();
+                return instacne;
+            }
+        }
+        private static ButtonManager instacne;
+        public FunctionButton FunctionButtonActiveNow { get; set; }
+        public MenuButton MenuButtonActiveNow { get; set; }
+        private Dictionary<ButtonEffectType, Type> Effects { get; } = new Dictionary<ButtonEffectType, Type>
+        {
+            [ButtonEffectType.None] = null,
+            [ButtonEffectType.NormalEffect] = typeof(NormalButtonEffect),
+            [ButtonEffectType.NoTextEffect] = typeof(NoTextButtonEffect),
+        };
+        private ButtonManager()
+        {
 
-    public IButtonEffect GetEffect(ButtonEffectType effect, ButtonBase button)
-    {
-        if (Effects.ContainsKey(effect))
-            return (IButtonEffect)System.Activator.CreateInstance(Effects[effect], new object[] { button });
-        return null;
+        }
+
+        public IButtonEffect GetEffect(ButtonEffectType effect, ButtonBase button)
+        {
+            if (Effects.ContainsKey(effect))
+                return (IButtonEffect)System.Activator.CreateInstance(Effects[effect], new object[] { button });
+            return null;
+        }
     }
 }

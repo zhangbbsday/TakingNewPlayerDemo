@@ -1,18 +1,21 @@
 ﻿using UnityEngine.UI;
 
-public class EnemiesNumber : UIElementBase
+namespace GameEditor
 {
-    private Text Text { get; set; }
-
-    protected override void Start()
+    public class EnemiesNumber : UIElementBase
     {
-        base.Start();
-        Text = GetComponent<Text>();
-    }
+        private Text Text { get; set; }
 
-    protected override void Update()
-    {
-        base.Update();
-        Text.text = GameManager.Instance.EnemyContainerManager.EnemyContainerNumber.ToString();
+        protected override void Start()
+        {
+            base.Start();
+            Text = GetComponent<Text>();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+            Text.text = GameManager.Instance.EnemyContainerManager.EnemyContainerNumber.ToString();
+        }
     }
 }

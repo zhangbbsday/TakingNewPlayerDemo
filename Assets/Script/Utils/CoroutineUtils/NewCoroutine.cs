@@ -1,37 +1,40 @@
 ﻿using System.Collections;
 
-public class NewCoroutine
+namespace GameEditor
 {
-    public bool IsRunning { get; set; }
-    private IEnumerator Coroutine { get; }
-    private IEnumerator Wrapper { get; }
-    public NewCoroutine(IEnumerator coroutine)
+    public class NewCoroutine
     {
-        Coroutine = coroutine;
-        Wrapper = CallWrapper();
-    }
-
-    public IEnumerator GetNewCoroutine()
-    {
-        return Wrapper;
-    }
-
-    private IEnumerator CallWrapper()
-    {
-        if (Coroutine != null)
+        public bool IsRunning { get; set; }
+        private IEnumerator Coroutine { get; }
+        private IEnumerator Wrapper { get; }
+        public NewCoroutine(IEnumerator coroutine)
         {
-            IsRunning = true;
-            yield return null;
-
-            while (IsRunning)
-            {
-                if (Coroutine.MoveNext())
-                    yield return Coroutine.Current;
-                else
-                    break;
-            }
+            Coroutine = coroutine;
+            Wrapper = CallWrapper();
         }
-        
-        IsRunning = false;
+
+        public IEnumerator GetNewCoroutine()
+        {
+            return Wrapper;
+        }
+
+        private IEnumerator CallWrapper()
+        {
+            if (Coroutine != null)
+            {
+                IsRunning = true;
+                yield return null;
+
+                while (IsRunning)
+                {
+                    if (Coroutine.MoveNext())
+                        yield return Coroutine.Current;
+                    else
+                        break;
+                }
+            }
+
+            IsRunning = false;
+        }
     }
 }

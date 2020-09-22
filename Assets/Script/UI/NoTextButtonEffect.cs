@@ -2,42 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoTextButtonEffect : IButtonEffect
+namespace GameEditor
 {
-    private ButtonBase Button { get; }
-
-    public NoTextButtonEffect(ButtonBase button)
+    public class NoTextButtonEffect : IButtonEffect
     {
-        Button = button;
-    }
+        private ButtonBase Button { get; }
 
-    public void CancelEffect()
-    {
+        public NoTextButtonEffect(ButtonBase button)
+        {
+            Button = button;
+        }
 
-    }
+        public void CancelEffect()
+        {
 
-    public void EnterEffect()
-    {
+        }
 
-    }
+        public void EnterEffect()
+        {
 
-    public void ExitEffect()
-    {
+        }
 
-    }
+        public void ExitEffect()
+        {
 
-    public void PressEffect()
-    {
+        }
 
-    }
+        public void PressEffect()
+        {
 
-    public void ReleaseEffect()
-    {
+        }
 
-    }
+        public void ReleaseEffect()
+        {
 
-    public void SelectedEffect()
-    {
+        }
 
+        public void SelectedEffect()
+        {
+
+        }
     }
 }

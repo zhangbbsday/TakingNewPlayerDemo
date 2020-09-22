@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteEnemyButton : MenuButton
+namespace GameEditor
 {
-    protected override ButtonManager.ButtonEffectType SetButtonEffect()
+    public class DeleteEnemyButton : MenuButton
     {
-        return ButtonManager.ButtonEffectType.NoTextEffect;
-    }
+        protected override ButtonManager.ButtonEffectType SetButtonEffect()
+        {
+            return ButtonManager.ButtonEffectType.NoTextEffect;
+        }
 
-    private void DeleteEnemyContainer()
-    {
-        EnemyContainer container = Transform.parent.GetComponent<EnemyContainer>();
-        GameManager.Instance.EnemyContainerManager.DeleteEnemyContainer(container);
-    }
+        private void DeleteEnemyContainer()
+        {
+            EnemyContainer container = Transform.parent.GetComponent<EnemyContainer>();
+            GameManager.Instance.EnemyContainerManager.DeleteEnemyContainer(container);
+        }
 
-    public override void PressAction()
-    {
-        DeleteEnemyContainer();
-    }
+        public override void PressAction()
+        {
+            DeleteEnemyContainer();
+        }
 
-    public override void ReleseAction()
-    {
-        
+        public override void ReleseAction()
+        {
+
+        }
     }
 }

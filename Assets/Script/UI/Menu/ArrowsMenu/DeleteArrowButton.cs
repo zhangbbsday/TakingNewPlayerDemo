@@ -2,65 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteArrowButton : MenuButton
+namespace GameEditor
 {
-    private bool IsSelecting { get; set; }
-    private float SelectRange { get; } = 0.5f;
-    private Arrow SelectedOne { get; set; }
-
-    protected override void Update()
+    public class DeleteArrowButton : MenuButton
     {
-        base.Update();
-        DeleteArrow();
-    }
+        private bool IsSelecting { get; set; }
+        private float SelectRange { get; } = 0.5f;
+        private Arrow SelectedOne { get; set; }
 
-    private void DeleteArrow()
-    {
-        if (!IsSelecting)
-            return;
+        protected override void Update()
+        {
+            base.Update();
+            DeleteArrow();
+        }
 
-        Arrow arrow = FindNearestArrow();
-        SelectedEffect(arrow);
-        if (arrow == null)
-            return;
+        private void DeleteArrow()
+        {
+            if (!IsSelecting)
+                return;
 
-        if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
-            DeleteOne(arrow);
-    }
+            Arrow arrow = FindNearestArrow();
+            SelectedEffect(arrow);
+            if (arrow == null)
+                return;
 
-    private Arrow FindNearestArrow()
-    {
-        return GameManager.Instance.ArrowsManager.GetMouseNearestArrow(SelectRange);
-    }
+            if (Input.GetMouseButtonDown(0) && !MouseUtils.IsMouseOverUIObject())
+                DeleteOne(arrow);
+        }
 
-    private void DeleteOne(Arrow arrow)
-    {
-        GameManager.Instance.ArrowsManager.DeleteArrow(arrow);
-        //IsSelecting = false;
-    }
+        private Arrow FindNearestArrow()
+        {
+            return GameManager.Instance.ArrowsManager.GetMouseNearestArrow(SelectRange);
+        }
 
-    private void SelectedEffect(Arrow arrow)
-    {
-        if (SelectedOne == arrow)
-            return;
+        private void DeleteOne(Arrow arrow)
+        {
+            GameManager.Instance.ArrowsManager.DeleteArrow(arrow);
+            //IsSelecting = false;
+        }
 
-        if (SelectedOne != null)
-            SelectedOne.ReleaseEffect();
+        private void SelectedEffect(Arrow arrow)
+        {
+            if (SelectedOne == arrow)
+                return;
 
-        SelectedOne = arrow;
-        if (SelectedOne != null)
-            SelectedOne.SelectEffect();
-    }
+            if (SelectedOne != null)
+                SelectedOne.ReleaseEffect();
 
-    public override void PressAction()
-    {
-        IsSelecting = true;
-        SelectedOne = null;
-    }
+            SelectedOne = arrow;
+            if (SelectedOne != null)
+                SelectedOne.SelectEffect();
+        }
 
-    public override void ReleseAction()
-    {
-        IsSelecting = false;
-        SelectedOne = null;
+        public override void PressAction()
+        {
+            IsSelecting = true;
+            SelectedOne = null;
+        }
+
+        public override void ReleseAction()
+        {
+            IsSelecting = false;
+            SelectedOne = null;
+        }
     }
 }

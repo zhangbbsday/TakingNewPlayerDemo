@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 
-public class Mono : MonoBehaviour
+namespace GameEditor
 {
-    public static Mono Instance { get; private set; }
-
-    public static void CreateOne()
+    public class Mono : MonoBehaviour
     {
-        if (Instance != null)
-            Destroy(Instance);
+        public static Mono Instance { get; private set; }
 
-        Instance = new GameObject("Mono").AddComponent<Mono>();
-    }
+        public static void CreateOne()
+        {
+            if (Instance != null)
+                Destroy(Instance);
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
+            Instance = new GameObject("Mono").AddComponent<Mono>();
+        }
+
+        private void Start()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
