@@ -83,6 +83,13 @@ namespace GameEditor
             return Nodes.Values.ToArray();
         }
 
+        public Node GetNode(int id)
+        {
+            if (Nodes.ContainsKey(id))
+                return Nodes[id];
+            return null;
+        }
+
         public Node GetMouseNearestNode(float selectRange = 0.5f)
         {
             Node[] nodes = GetNodes();
@@ -214,7 +221,7 @@ namespace GameEditor
             }
             catch
             {
-                Debug.Log("读取的XML文件残损或格式有误!");
+                Debug.LogError("读取的XML文件残损或格式有误!");
             }
         }
 

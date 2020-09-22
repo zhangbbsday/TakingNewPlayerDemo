@@ -13,11 +13,11 @@ namespace GameEditor
         private Text IdText { get; set; }
         private Dropdown EnemyTypeSelecter { get; set; }
 
-        public void Init(int id, string[] options)
+        public void Init(int id, string[] options, EnemyContainerManager.EnemyType type)
         {
             Id = id;
 
-            SetOptions(options);
+            SetOptions(options, type);
         }
 
         public EnemyContainerManager.EnemyType GetEnemyType()
@@ -35,11 +35,13 @@ namespace GameEditor
             IdText.text = Id.ToString();
         }
 
-        private void SetOptions(string[] options)
+        private void SetOptions(string[] options, EnemyContainerManager.EnemyType type)
         {
-            EnemyTypeSelecter = Transform.Find("ChooseType").GetComponent<Dropdown>();
+            Dropdown[] childs = GetComponentsInChildren<Dropdown>(true);
+            EnemyTypeSelecter = childs[0];
             EnemyTypeSelecter.ClearOptions();
             EnemyTypeSelecter.AddOptions(options.ToList());
+            EnemyTypeSelecter.value = (int)type;
         }
     }
 }

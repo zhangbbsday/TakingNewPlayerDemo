@@ -33,11 +33,11 @@ namespace GameEditor
             FindParent();
         }
 
-        public EnemyContainer CreateEnemyContainer()
+        public EnemyContainer CreateEnemyContainer(EnemyType type = EnemyType.None)
         {
             EnemyContainer container = GameManager.Instance.ResourcesManager.GetEnemyContainer(EnemyContainersName);
             container = GameObject.Instantiate(container, Vector2.zero, Quaternion.identity, EnemyContainersParent);
-            container.Init(GlobalIndex, EnemyNameToType.Keys.ToArray());
+            container.Init(GlobalIndex, EnemyNameToType.Keys.ToArray(), type);
 
             SetContainer(container);
             return container;
@@ -123,7 +123,36 @@ namespace GameEditor
 
         public void LoadXmlData(XmlDataContainer dataContainer)
         {
+            SetDefaultState();
 
+            try
+            {
+                LoadAllEnemyContainers(dataContainer);
+            }
+            catch
+            {
+                Debug.LogError("读取的XML文件残损或格式有误!");
+            }
+        }
+
+        private void SetDefaultState()
+        {
+            DeleteAllEnemyContainers();
+            globalIndex = 0;
+        }
+
+        private void LoadAllEnemyContainers(XmlDataContainer dataContainer)
+        {
+            var containers = from container in dataContainer.Document.Root.Element("enemies").Elements()
+                             select new
+                             {
+                                 Type = container.Element("type").Value,
+                             };
+
+            foreach (var c in containers)
+            {
+                CreateEnemyContainer((EnemyType)(int.Parse(c.Type)));
+            }
         }
     }
 }

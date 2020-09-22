@@ -133,7 +133,7 @@ namespace GameEditor
             foreach (var link in Links)
             {
                 var nodes = link.Value.GetNodes();
-                root.Add(new XElement("links",
+                root.Add(new XElement("link",
                     new XElement("start", nodes.Key.Id),
                     new XElement("end", nodes.Value.Id)));
             }
@@ -144,22 +144,35 @@ namespace GameEditor
             SetDefaultState();
             try
             {
-                LoadAllLinks();
+                LoadAllLinks(dataContainer);
             }
             catch
             {
-                Debug.Log("读取的XML文件残损或格式有误!");
+                Debug.LogError("读取的XML文件残损或格式有误!");
             }
         }
 
         private void SetDefaultState()
         {
-
+            DeleteAllLinks();
+            globalIndex = 0;
         }
 
-        private void LoadAllLinks()
+        private void LoadAllLinks(XmlDataContainer dataContainer)
         {
+            var links = from link in dataContainer.Document.Root.Element("links").Elements()
+                        select new
+                        {
+                            StartNodeId = link.Element("start").Value,
+                            EndNodeId = link.Element("end").Value,
+                        };
 
+            foreach (var l in links)
+            {
+                Node left = GameManager.Instance.NodesManager.GetNode(int.Parse(l.StartNodeId));
+                Node right = GameManager.Instance.NodesManager.GetNode(int.Parse(l.EndNodeId));
+                CreateLink(left, right);
+            }
         }
     }
 

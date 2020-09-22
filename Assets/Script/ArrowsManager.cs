@@ -27,14 +27,20 @@ namespace GameEditor
 
         public Arrow CreateArrow(Arrow.ArrowType type, Vector2 position)
         {
-            return CreateArrow(type, position, Vector2.up);
+            return CreateArrow(type, position, 0);
         }
 
         public Arrow CreateArrow(Arrow.ArrowType type, Vector2 position, Vector2 direction)
         {
+            float angle = Vector2.SignedAngle(Vector2.up, direction);
+            return CreateArrow(type, position, angle);
+        }
+
+        public Arrow CreateArrow(Arrow.ArrowType type, Vector2 position, float angle)
+        {
             Arrow arrow = GameManager.Instance.ResourcesManager.GetArrow(ArrowsName[(int)type]);
             arrow = GameObject.Instantiate(arrow, position, Quaternion.identity, ArrowsParent);
-            arrow.Init(GlobalIndex, position, direction, type);
+            arrow.Init(GlobalIndex, position, angle, type);
 
             SetArrow(arrow);
             return arrow;
@@ -146,7 +152,50 @@ namespace GameEditor
 
         public void LoadXmlData(XmlDataContainer dataContainer)
         {
+            SetDefaultState();
 
+            try
+            {
+                LoadAllArrows(dataContainer);
+                LoadArrowCount(dataContainer);
+            }
+            catch
+            {
+                Debug.LogError("读取的XML文件残损或格式有误!");
+            }
+        }
+
+        private void SetDefaultState()
+        {
+            DeleteAllArrows();
+            globalIndex = 0;
+        }
+
+        private void LoadAllArrows(XmlDataContainer dataContainer)
+        {
+            var arrows = from arrow in dataContainer.Document.Root.Element("arrows").Element("allarrows").Elements()
+                         select new
+                         {
+                             Type = arrow.Element("type").Value,
+                             X = arrow.Element("x").Value,
+                             Y = arrow.Element("y").Value,
+                             Direction = arrow.Element("direction").Value,
+                         };
+
+            foreach (var a in arrows)
+            {
+                CreateArrow((Arrow.ArrowType)(int.Parse(a.Type)), 
+                    new Vector2(float.Parse(a.X), float.Parse(a.Y)),float.Parse(a.Direction));
+            }
+        }
+
+        private void LoadArrowCount(XmlDataContainer dataContainer)
+        {
+            var root = dataContainer.Document.Root.Element("arrows").Element("userarrowcount");
+            ArrowsCount[(int)Arrow.ArrowType.AttackArrow] = int.Parse(root.Element("attackarrow").Value);
+            ArrowsCount[(int)Arrow.ArrowType.ReturnArrow] = int.Parse(root.Element("returnarrow").Value);
+
+            StartArrowsNumber.Instance.SetValues(ArrowsCount);
         }
     }
 }

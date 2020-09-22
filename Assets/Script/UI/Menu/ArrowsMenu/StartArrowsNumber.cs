@@ -8,15 +8,28 @@ namespace GameEditor
 {
     public class StartArrowsNumber : UIElementBase
     {
+        public static StartArrowsNumber Instance { get; private set; }
         private InputField AttackArrowCount { get; set; }
         private InputField ReturnArrowCount { get; set; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            SetInputField();
+            Instance = this;
+        }
 
         protected override void Start()
         {
             base.Start();
             CanChangePosition = false;
 
-            SetInputField();
+        }
+
+        public void SetValues(int[] values)
+        {
+            AttackArrowCount.text = values[(int)Arrow.ArrowType.AttackArrow].ToString();
+            ReturnArrowCount.text = values[(int)Arrow.ArrowType.ReturnArrow].ToString();
         }
 
         private void SetInputField()
