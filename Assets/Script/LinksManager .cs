@@ -139,7 +139,25 @@ public class LinksManager : IXmlDataSave
 
     public void LoadXmlData(XmlDataContainer dataContainer)
     {
-        
+        SetDefaultState();
+        try
+        {
+            LoadAllLinks();
+        }
+        catch
+        {
+            Debug.Log("读取的XML文件残损或格式有误!");
+        }
+    }
+
+    private void SetDefaultState() 
+    { 
+
+    }
+
+    private void LoadAllLinks()
+    {
+
     }
 }
 
