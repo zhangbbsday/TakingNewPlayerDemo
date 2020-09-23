@@ -12,6 +12,7 @@ namespace GameEditor
         public ArrowsManager ArrowsManager { get; private set; }
         public FileContainerManager FileContainerManager { get; private set; }
         public BuildManager BuildManager { get; private set; }
+        public AudioMnanager AudioMnanager { get; private set; }
 
         private void Awake()
         {
@@ -35,6 +36,7 @@ namespace GameEditor
             ArrowsManager = new ArrowsManager();
             FileContainerManager = new FileContainerManager();
             BuildManager = new BuildManager();
+            AudioMnanager = new AudioMnanager();
         }
     }
 }

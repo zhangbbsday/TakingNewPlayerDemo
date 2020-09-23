@@ -10,6 +10,7 @@ namespace GameEditor
         private Dictionary<string, EnemyContainer> EnemyContainers { get; } = new Dictionary<string, EnemyContainer>();
         private Dictionary<string, Arrow> Arrows { get; } = new Dictionary<string, Arrow>();
         private Dictionary<string, FileContainer> FileContainers { get; } = new Dictionary<string, FileContainer>();
+        private Dictionary<string, AudioClip> AudioContainers { get; } = new Dictionary<string, AudioClip>();
 
         private string[] NodesPath { get; } =
         {
@@ -39,6 +40,11 @@ namespace GameEditor
             "Prefabs/Files/FileContainer",
         };
 
+        private string[] AudioPath { get; } =
+        {
+            "Audio/Button",
+        };
+
         public ResourcesManager()
         {
             Load();
@@ -51,6 +57,7 @@ namespace GameEditor
             LoadEnemies();
             LoadArrows();
             LoadFileContainers();
+            LoadAudio();
         }
 
         public Node GetNode(string name)
@@ -76,6 +83,11 @@ namespace GameEditor
         public FileContainer GetFileContainer(string name)
         {
             return FileContainers.ContainsKey(name) ? FileContainers[name] : null;
+        }
+
+        public AudioClip GetAudio(string name)
+        {
+            return AudioContainers.ContainsKey(name) ? AudioContainers[name] : null;
         }
 
         private void LoadNodes()
@@ -140,6 +152,19 @@ namespace GameEditor
                     throw new System.Exception($"存在重名文件{obj.name}!");
 
                 FileContainers.Add(obj.name, obj);
+            }
+        }
+
+        private void LoadAudio()
+        {
+            foreach (var path in AudioPath)
+            {
+                AudioClip obj = Resources.Load<AudioClip>(path);
+
+                if (AudioContainers.ContainsKey(obj.name))
+                    throw new System.Exception($"存在重名文件{obj.name}!");
+
+                AudioContainers.Add(obj.name, obj);
             }
         }
     }

@@ -10,6 +10,7 @@ namespace GameEditor
         private Color32 SelectedColor { get; } = new Color32(0, 255, 203, 130);
         private Color32 DefaultColor { get; } = new Color32(0, 255, 203, 0);
         private ButtonBase Button { get; }
+        private string PressEffectName { get; } = "Button";
 
         public NormalButtonEffect(ButtonBase button)
         {
@@ -32,6 +33,9 @@ namespace GameEditor
         {
             NewCoroutine coroutine = new NewCoroutine(PressAction());
             coroutine.StartCoroutine();
+
+            if (GameManager.Instance != null)
+                GameManager.Instance.AudioMnanager.Play(PressEffectName);
         }
 
         public void ReleaseEffect()

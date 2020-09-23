@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game>
+  <nodes>
+    <allnodes>
+      <node>
+        <id>0</id>
+        <x>-3.20823216</x>
+        <y>1.58595681</y>
+      </node>
+      <node>
+        <id>1</id>
+        <x>-1.39225173</x>
+        <y>0.205811262</y>
+      </node>
+      <node>
+        <id>2</id>
+        <x>-4.927361</x>
+        <y>0.6900728</y>
+      </node>
+    </allnodes>
+    <entrancenodes>
+      <startnode>2</startnode>
+    </entrancenodes>
+  </nodes>
+  <links>
+    <link>
+      <start>2</start>
+      <end>0</end>
+    </link>
+    <link>
+      <start>0</start>
+      <end>1</end>
+    </link>
+  </links>
+  <enemies />
+  <arrows>
+    <allarrows />
+    <userarrowcount>
+      <attackarrow>0</attackarrow>
+      <returnarrow>0</returnarrow>
+    </userarrowcount>
+  </arrows>
+</game>
