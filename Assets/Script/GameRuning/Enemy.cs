@@ -30,6 +30,7 @@ namespace Assets.Script
         private float _touchDistance = 0.1f; //两个人检测接触时，在他们之间隔着这个距离也算作接触
         private EnemyTypeEnum _type = EnemyTypeEnum.Big;
         private int _pushingPriority;
+        [SerializeField] private AudioClip _popSound;
         public static float BigSize { get; } = 0.43f;
         public static float SmallSize { get; } = 0.25f;
         private GameObject SmallPic
@@ -445,6 +446,7 @@ namespace Assets.Script
 
         public void Die()
         {
+            GameManager.PlaySound(_popSound);
             GameManager.EnemiesToDelete.Add(this);
         }
 

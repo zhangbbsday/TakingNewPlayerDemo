@@ -14,6 +14,9 @@ namespace Assets.Script.Rocket
             Hit,
         }
 
+        [SerializeField] protected AudioSource _audioSource;
+        [SerializeField] protected AudioClip _returnSound;
+        [SerializeField] protected AudioClip _fireSound;
         public StateMachine<StateEnum> StateMachine { get; set; } =new StateMachine<StateEnum>();
         private GameObject _dottedLine;
         public bool Launched { get; private set; } = false;
@@ -43,6 +46,7 @@ namespace Assets.Script.Rocket
         {
             if (StateMachine.State != StateEnum.ReadyToLaunch) return;
             StateMachine.State = StateEnum.Flying;
+            GameManager.PlaySound(_fireSound);
             DottedLineVisible = false;
         }
         protected void OnMouseEnter()
@@ -95,6 +99,7 @@ namespace Assets.Script.Rocket
         void Start()
         {
             GameManager.RocketList.Add(this);
+            _audioSource.Pause();
         }
 
         void Update()

@@ -46,6 +46,10 @@ namespace Assets.Script
             }
         }
         private static float _enemyPlacingFrame = 15;
+        private static GameManager _instance;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _winSound;
+        [SerializeField] private AudioClip _loseSound;
 
         GameManager()
         {
@@ -55,6 +59,7 @@ namespace Assets.Script
             NodeDic = new Dictionary<int, Node>();
             EnemyWaiting = new Queue<Enemy.EnemyTypeEnum>();
             LinkList = new List<Link>();
+            _instance = this;
         }
 
         void Start()
@@ -159,6 +164,7 @@ namespace Assets.Script
                 {
                     StateMachine.State = StateEnum.GameSuccess;
                     UIManager.Instruction = "游戏胜利:D";
+                    PlaySound(_winSound);
                 }
             });
         }
@@ -183,6 +189,7 @@ namespace Assets.Script
             Time.timeScale = 0;
             StateMachine.State = StateEnum.GameFail;
             UIManager.Instruction = "游戏结束：敌人到达终点\n点右边的按钮重置关卡吧";
+            PlaySound(_instance._loseSound);
         }
         private void SetMap()
         {
@@ -304,6 +311,11 @@ namespace Assets.Script
                         break;
                 }
             }
+        }
+
+        public static void PlaySound(AudioClip a)
+        {
+            _instance._audioSource.PlayOneShot(a);
         }
 
         #region 敌人的管理

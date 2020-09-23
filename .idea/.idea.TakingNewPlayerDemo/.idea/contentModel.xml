@@ -10,7 +10,9 @@
           <e p="21.xml" t="Include" />
           <e p="AFSDSA.xml" t="Include" />
           <e p="hta.xml" t="Include" />
+          <e p="test.xml" t="Include" />
           <e p="tttat.xml" t="Include" />
+          <e p="复杂.xml" t="Include" />
         </e>
         <e p="save" t="Include">
           <e p="tatat2.xml" t="Include" />
@@ -22,6 +24,7 @@
               <e p="Arrow.cs" t="Include" />
             </e>
             <e p="ArrowsManager.cs" t="Include" />
+            <e p="AudioMnanager.cs" t="Include" />
             <e p="BuildManager.cs" t="Include" />
             <e p="EnemyContainerManager.cs" t="Include" />
             <e p="FileConatinerManager.cs" t="Include" />

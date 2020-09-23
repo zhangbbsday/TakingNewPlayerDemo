@@ -14,8 +14,8 @@ namespace Assets.Script.Rocket
                 Debug.Log("撞上了不是敌人的东西");
                 return;
             }
-            
             other.TurnAround();
+            GameManager.PlaySound(_returnSound);
             Destroy(gameObject);
         }
     }
