@@ -3,10 +3,11 @@ namespace Assets.Script.Rocket
 {
     public class ReturnRocket : RocketBase
     {
-        void OnTriggerEnter2D(Collider2D col)
+        protected override void OnTriggerStay2D(Collider2D col)
         {
             if (StateMachine.State!=StateEnum.Flying) return;
             
+            StateMachine.State = StateEnum.Hit;
             Enemy other = col.gameObject.GetComponent<Enemy>();
             if (other == null)
             {

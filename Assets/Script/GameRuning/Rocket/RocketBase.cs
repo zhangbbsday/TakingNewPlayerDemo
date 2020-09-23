@@ -11,6 +11,7 @@ namespace Assets.Script.Rocket
             Sleep,
             ReadyToLaunch,
             Flying,
+            Hit,
         }
 
         public StateMachine<StateEnum> StateMachine { get; set; } =new StateMachine<StateEnum>();
@@ -84,6 +85,11 @@ namespace Assets.Script.Rocket
                 var orientation = transform.up;
                 transform.position += orientation * Speed*UIManager.CustomTimeScale;
             });
+            StateMachine.RegisterAction(StateEnum.Hit, () =>
+            {
+                GameManager.RocketList.Remove(this);
+                Destroy(gameObject);
+            });
         }
 
         void Start()
@@ -98,6 +104,15 @@ namespace Assets.Script.Rocket
         public void SetByMouse()
         {
             StateMachine.State = StateEnum.SettingPosition;
+        }
+
+        protected virtual void OnTriggerStay2D(Collider2D col)
+        {
+        }
+
+        void OnTriggerEnter2D(Collider2D col)
+        {
+            OnTriggerStay2D(col);
         }
     }
 }

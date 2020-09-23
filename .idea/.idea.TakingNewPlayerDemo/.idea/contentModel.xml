@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\_MK\GameDPM\2020招新\TakingNewPlayerDemo" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Levels" t="Include">
+          <e p="123.xml" t="Include" />
+          <e p="2091.xml" t="Include" />
+          <e p="21.xml" t="Include" />
+          <e p="AFSDSA.xml" t="Include" />
+          <e p="hta.xml" t="Include" />
+          <e p="tttat.xml" t="Include" />
+        </e>
+        <e p="save" t="Include">
+          <e p="tatat2.xml" t="Include" />
+          <e p="啦啦啦.xml" t="Include" />
+        </e>
+        <e p="Script" t="Include">
+          <e p="GameEditor" t="Include">
+            <e p="Arrows" t="Include">
+              <e p="Arrow.cs" t="Include" />
+            </e>
+            <e p="ArrowsManager.cs" t="Include" />
+            <e p="BuildManager.cs" t="Include" />
+            <e p="EnemyContainerManager.cs" t="Include" />
+            <e p="FileConatinerManager.cs" t="Include" />
+            <e p="GameActor.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="ISelectableActor.cs" t="Include" />
+            <e p="IXmlDataSave.cs" t="Include" />
+            <e p="LinksManager .cs" t="Include" />
+            <e p="Nodes" t="Include">
+              <e p="Node.cs" t="Include" />
+            </e>
+            <e p="NodesManager.cs" t="Include" />
+            <e p="Path" t="Include">
+              <e p="Link.cs" t="Include" />
+            </e>
+            <e p="ResourcesManager.cs" t="Include" />
+            <e p="UI" t="Include">
+              <e p="ButtonBase.cs" t="Include" />
+              <e p="ButtonManager.cs" t="Include" />
+              <e p="ExitButton.cs" t="Include" />
+              <e p="Functions" t="Include">
+                <e p="FunctionButton.cs" t="Include" />
+                <e p="FunctionMenu.cs" t="Include" />
+              </e>
+              <e p="IButtonEffect.cs" t="Include" />
+              <e p="Menu" t="Include">
+                <e p="ArrowsMenu" t="Include">
+                  <e p="DeleteArrowButton.cs" t="Include" />
+                  <e p="SetArrowButton.cs" t="Include" />
+                  <e p="StartArrowsNumber.cs" t="Include" />
+                </e>
+                <e p="BuildMenu" t="Include">
+                  <e p="BuildButton.cs" t="Include" />
+                  <e p="FileContainer.cs" t="Include" />
+                  <e p="LoadFileButton.cs" t="Include" />
+                  <e p="SaveFileButton.cs" t="Include" />
+                </e>
+                <e p="EnemiesMenu" t="Include">
+                  <e p="AddEnemyButton.cs" t="Include" />
+                  <e p="DeleteEnemyButton.cs" t="Include" />
+                  <e p="EnemiesNumber.cs" t="Include" />
+                  <e p="EnemyContainer.cs" t="Include" />
+                </e>
+                <e p="MenuButton.cs" t="Include" />
+                <e p="NodesMenu" t="Include">
+                  <e p="DeleteNodeButton.cs" t="Include" />
+                  <e p="SetNodeButton.cs" t="Include" />
+                </e>
+                <e p="PathMenu" t="Include">
+                  <e p="DeletePathButton.cs" t="Include" />
+                  <e p="SetPathButton.cs" t="Include" />
+                </e>
+              </e>
+              <e p="NormalButtonEffect.cs" t="Include" />
+              <e p="NoTextButtonEffect.cs" t="Include" />
+              <e p="UIElementBase.cs" t="Include" />
+            </e>
+            <e p="Utils" t="Include">
+              <e p="CoroutineUtils" t="Include">
+                <e p="CoroutineUtils.cs" t="Include" />
+                <e p="Mono.cs" t="Include" />
+                <e p="NewCoroutine.cs" t="Include" />
+              </e>
+              <e p="GameObjectUtils.cs" t="Include" />
+              <e p="MouseUtils.cs" t="Include" />
+              <e p="SceneUtils.cs" t="Include" />
+              <e p="VectorUtils.cs" t="Include" />
+            </e>
+            <e p="XmlDataContainer.cs" t="Include" />
+          </e>
+          <e p="GameRuning" t="Include">
+            <e p="Enemy.cs" t="Include" />
+            <e p="EnemyList.cs" t="Include" />
+            <e p="EnemyManager.cs" t="Include" />
+            <e p="Factory.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="LevelSelect" t="Include">
+              <e p="LevelSelectManager.cs" t="Include" />
+              <e p="LevelText.cs" t="Include" />
+            </e>
+            <e p="Link.cs" t="Include" />
+            <e p="Node.cs" t="Include" />
+            <e p="Rocket" t="Include">
+              <e p="DrillRocket.cs" t="Include" />
+              <e p="ReturnRocket.cs" t="Include" />
+              <e p="RocketBase.cs" t="Include" />
+            </e>
+            <e p="RoutePosition.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
+          </e>
+          <e p="GameStartMenu" t="Include">
+            <e p="ExitButton.cs" t="Include" />
+            <e p="GameEditorButton.cs" t="Include" />
+            <e p="StartGameButton.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="TakingNewPlayerDemo.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\SZTTE\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\SZTTE\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TakingNewPlayerDemo.1950799198.00" t="ExcludeRecursive" />
+  </component>
+</project>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="508a436a-c1cd-4762-a40c-839945b2af05" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/save/tatat2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/save/啦啦啦.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/UPRSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/save/tatat2.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/save/啦啦啦.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/DrillRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/DrillRocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/DrillRocket.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hSdmkjYFtgUGt2HnXH1BZhCcrV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="508a436a-c1cd-4762-a40c-839945b2af05" name="Default Changelist" comment="" />
+      <created>1600008587905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600008587905</updated>
+      <workItem from="1600008607193" duration="253000" />
+      <workItem from="1600406513734" duration="1862000" />
+      <workItem from="1600856712889" duration="1721000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="629" y="223" width="661" height="594" key="find.popup" timestamp="1600858433269">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="629" y="223" width="661" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600858433269" />
+  </component>
+</project>
