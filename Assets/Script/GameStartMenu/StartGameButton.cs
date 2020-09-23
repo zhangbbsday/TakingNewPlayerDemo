@@ -16,6 +16,6 @@ public class StartGameButton : ButtonBase
 
     private void StartGame()
     {
-        SceneManager.LoadScene("LevelSelectScene");
+        SceneUtils.ChangeScene("LevelSelectScene");
     }
 }

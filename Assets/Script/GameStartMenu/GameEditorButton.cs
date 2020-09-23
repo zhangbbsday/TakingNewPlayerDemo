@@ -16,6 +16,6 @@ public class GameEditorButton : ButtonBase
 
     private void GameEditor()
     {
-        SceneManager.LoadScene("GameEditor");
+        SceneUtils.ChangeScene("GameEditor");
     }
 }

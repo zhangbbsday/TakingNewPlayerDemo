@@ -18,8 +18,6 @@ namespace GameEditor
         }
         public static void StopCoroutine(this NewCoroutine coroutine)
         {
-            SetMono();
-
             if (MonoUtils == null)
                 return;
 
@@ -28,8 +26,6 @@ namespace GameEditor
         }
         public static void StopAllCoroutine()
         {
-            SetMono();
-
             if (MonoUtils == null)
                 return;
 

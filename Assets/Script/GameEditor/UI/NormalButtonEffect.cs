@@ -6,7 +6,7 @@ namespace GameEditor
     public class NormalButtonEffect : IButtonEffect
     {
         private float EffectTime { get; } = 0.25f;
-        private float SizeChangeSpeed { get; } = 0.005f;
+        private float SizeChangeSpeed { get; } = 0.5f;
         private Color32 SelectedColor { get; } = new Color32(0, 255, 203, 130);
         private Color32 DefaultColor { get; } = new Color32(0, 255, 203, 0);
         private ButtonBase Button { get; }
@@ -24,7 +24,6 @@ namespace GameEditor
 
         public void ExitEffect()
         {
-
             NewCoroutine coroutine = new NewCoroutine(ExitAction());
             coroutine.StartCoroutine();
         }
@@ -58,7 +57,8 @@ namespace GameEditor
             float startTime = Time.time;
             while (Time.time - startTime <= EffectTime)
             {
-                Button.TextTransform.localScale += new Vector3(1, 1, 0) * SizeChangeSpeed;
+                if (!IsButtonNull())
+                    Button.TextTransform.localScale += new Vector3(1, 1, 0) * SizeChangeSpeed * Time.deltaTime;
                 yield return null;
             }
         }
@@ -68,11 +68,12 @@ namespace GameEditor
             float startTime = Time.time;
             while (Time.time - startTime <= EffectTime)
             {
-                Button.TextTransform.localScale -= new Vector3(1, 1, 0) * SizeChangeSpeed;
+                if (!IsButtonNull())
+                    Button.TextTransform.localScale -= new Vector3(1, 1, 0) * SizeChangeSpeed * Time.deltaTime;
                 yield return null;
             }
-
-            Button.TextTransform.localScale = Vector3.one;
+            if (!IsButtonNull())
+                Button.TextTransform.localScale = Vector3.one;
         }
 
         private IEnumerator PressAction()
@@ -80,14 +81,16 @@ namespace GameEditor
             float startTime = Time.time;
             while (Time.time - startTime <= EffectTime / 2)
             {
-                Button.TextTransform.localScale -= new Vector3(1, 1, 0) * SizeChangeSpeed;
+                if (!IsButtonNull())
+                    Button.TextTransform.localScale -= new Vector3(1, 1, 0) * SizeChangeSpeed * Time.deltaTime;
                 yield return null;
             }
 
             startTime = Time.time;
             while (Time.time - startTime <= EffectTime / 2)
             {
-                Button.TextTransform.localScale += new Vector3(1, 1, 0) * SizeChangeSpeed;
+                if (!IsButtonNull())
+                    Button.TextTransform.localScale += new Vector3(1, 1, 0) * SizeChangeSpeed * Time.deltaTime;
                 yield return null;
             }
         }
@@ -97,16 +100,24 @@ namespace GameEditor
             float startTime = Time.time;
             while (Time.time - startTime <= EffectTime)
             {
-                Button.Button.image.color = Color32.Lerp(Button.Button.image.color, SelectedColor, 0.5f);
+                if (!IsButtonNull())
+                    Button.Button.image.color = Color32.Lerp(Button.Button.image.color, SelectedColor, 0.5f);
                 yield return null;
             }
-            Button.Button.image.color = SelectedColor;
+            if (!IsButtonNull())
+                Button.Button.image.color = SelectedColor;
         }
 
         private IEnumerator CancelAction()
         {
-            Button.Button.image.color = DefaultColor;
+            if (!IsButtonNull())
+                Button.Button.image.color = DefaultColor;
             yield return null;
+        }
+
+        private bool IsButtonNull()
+        {
+            return Button == null;
         }
     }
 }
