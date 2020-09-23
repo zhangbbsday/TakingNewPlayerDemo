@@ -19,9 +19,7 @@ namespace GameEditor
         protected void OnDisable()
         {
             ReleseAction();
-
-            if (ButtonManager.Instance.MenuButtonActiveNow != null)
-                ButtonManager.Instance.MenuButtonActiveNow.ButtonEffect.CancelEffect();
+            ButtonEffect?.CancelEffect();
         }
 
         public abstract void PressAction();

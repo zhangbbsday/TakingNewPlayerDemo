@@ -20,6 +20,11 @@ namespace GameEditor
             base.Start();
         }
 
+        protected override void Update()
+        {
+            base.Update();
+        }
+
         public override void PressAction()
         {
             menu.Show();

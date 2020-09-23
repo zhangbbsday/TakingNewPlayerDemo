@@ -4,20 +4,20 @@ namespace GameEditor
 {
     public class FunctionMenu : UIElementBase
     {
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             Close();
         }
 
         public void Show()
         {
-            GameObject.SetActive(true);
+            GameObject.SetActiveNew(true);
         }
 
         public void Close()
         {
-            GameObject.SetActive(false);
+            GameObject.SetActiveNew(false);
         }
     }
 }
