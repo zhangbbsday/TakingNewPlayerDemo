@@ -154,15 +154,8 @@ namespace GameEditor
         {
             SetDefaultState();
 
-            try
-            {
                 LoadAllArrows(dataContainer);
                 LoadArrowCount(dataContainer);
-            }
-            catch
-            {
-                Debug.LogError("读取的XML文件残损或格式有误!");
-            }
         }
 
         private void SetDefaultState()

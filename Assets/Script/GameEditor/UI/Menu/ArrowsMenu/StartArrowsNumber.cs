@@ -23,6 +23,11 @@ namespace GameEditor
 
         }
 
+        protected override void Update()
+        {
+            base.Update();
+        }
+
         public void SetValues(int[] values)
         {
             AttackArrowCount.text = values[(int)Arrow.ArrowType.AttackArrow].ToString();

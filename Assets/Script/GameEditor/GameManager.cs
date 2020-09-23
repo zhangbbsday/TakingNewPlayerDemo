@@ -16,7 +16,7 @@ namespace GameEditor
         private void Awake()
         {
             SetManagers();
-            SetMono();
+
 
             Instance = this;
         }
@@ -35,12 +35,6 @@ namespace GameEditor
             ArrowsManager = new ArrowsManager();
             FileContainerManager = new FileContainerManager();
             BuildManager = new BuildManager();
-        }
-
-        private void SetMono()
-        {
-            Mono.CreateOne();
-            CoroutineUtils.SetMono(Mono.Instance);
         }
     }
 }

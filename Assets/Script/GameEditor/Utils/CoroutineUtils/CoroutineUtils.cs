@@ -4,29 +4,36 @@ namespace GameEditor
 {
     public static class CoroutineUtils
     {
-        private static MonoBehaviour Mono { get; set; }
+        private static bool HasCreartedMono { get; set; }
+        private static MonoBehaviour MonoUtils { get; set; }
         public static void StartCoroutine(this NewCoroutine coroutine)
         {
-            if (Mono == null)
+            SetMono();
+
+            if (MonoUtils == null)
                 return;
 
             coroutine.IsRunning = true;
-            Mono.StartCoroutine(coroutine.GetNewCoroutine());
+            MonoUtils.StartCoroutine(coroutine.GetNewCoroutine());
         }
         public static void StopCoroutine(this NewCoroutine coroutine)
         {
-            if (Mono == null)
+            SetMono();
+
+            if (MonoUtils == null)
                 return;
 
             coroutine.IsRunning = false;
-            Mono.StopCoroutine(coroutine.GetNewCoroutine());
+            MonoUtils.StopCoroutine(coroutine.GetNewCoroutine());
         }
         public static void StopAllCoroutine()
         {
-            if (Mono == null)
+            SetMono();
+
+            if (MonoUtils == null)
                 return;
 
-            Mono.StopAllCoroutines();
+            MonoUtils.StopAllCoroutines();
         }
 
         public static bool IsCompleteOrEnd(this NewCoroutine coroutine)
@@ -34,9 +41,14 @@ namespace GameEditor
             return !coroutine.IsRunning;
         }
 
-        public static void SetMono(Mono mono)
+        public static void SetMono()
         {
-            Mono = mono;
+            if (Mono.Instance != null || HasCreartedMono)
+                return;
+
+            Mono.CreateOne();
+            MonoUtils = Mono.Instance;
+            HasCreartedMono = true;
         }
     }
 }

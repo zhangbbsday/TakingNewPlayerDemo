@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace GameEditor
 {
@@ -7,7 +8,7 @@ namespace GameEditor
         protected override void Awake()
         {
             base.Awake();
-            Close();
+            new NewCoroutine(AutoClose()).StartCoroutine();
         }
 
         public void Show()
@@ -18,6 +19,12 @@ namespace GameEditor
         public void Close()
         {
             GameObject.SetActiveNew(false);
+        }
+
+        private IEnumerator AutoClose()
+        {
+            yield return null;
+            Close();
         }
     }
 }
