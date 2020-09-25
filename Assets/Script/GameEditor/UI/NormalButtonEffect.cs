@@ -114,9 +114,15 @@ namespace GameEditor
 
         private IEnumerator CancelAction()
         {
+            float startTime = Time.time;
+            while (Time.time - startTime <= EffectTime)
+            {
+                if (!IsButtonNull())
+                    Button.Button.image.color = Color32.Lerp(Button.Button.image.color, DefaultColor, 0.5f);
+                yield return null;
+            }
             if (!IsButtonNull())
                 Button.Button.image.color = DefaultColor;
-            yield return null;
         }
 
         private bool IsButtonNull()
