@@ -24,7 +24,6 @@ namespace GameEditor
             string path = GetInnocentPath(input.text);
 
             GameManager.Instance.BuildManager.SaveFile(path);
-            Debug.Log("文件保存成功!");
         }
 
         private string GetInnocentPath(string path)

@@ -19,8 +19,6 @@ namespace GameEditor
         {
             var container = Transform.parent.GetComponent<FileContainer>();
             GameManager.Instance.BuildManager.LoadFile(container.FileName);
-
-            Debug.Log("文件读取成功!");
         }
     }
 }
