@@ -24,6 +24,7 @@ namespace GameEditor
             string path = GetInnocentPath(input.text);
 
             GameManager.Instance.BuildManager.SaveFile(path);
+            Transform.parent.gameObject.SetActiveNew(false);
         }
 
         private string GetInnocentPath(string path)

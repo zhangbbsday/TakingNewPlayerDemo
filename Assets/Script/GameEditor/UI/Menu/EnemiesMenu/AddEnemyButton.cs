@@ -10,7 +10,7 @@ namespace GameEditor
 
         private void CreateEnemyContainer()
         {
-            GameManager.Instance.EnemyContainerManager.CreateEnemyContainer();
+            GameManager.Instance.EnemyContainerManager.CreateEnemyContainer(EnemyContainerManager.EnemyType.NormalEnemy);
         }
 
         public override void PressAction()

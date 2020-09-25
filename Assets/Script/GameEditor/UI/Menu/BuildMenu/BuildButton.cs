@@ -14,6 +14,8 @@ namespace GameEditor
         private FunctionMenu menu;
         [SerializeField]
         private ButtonType buttonType;
+        private bool IsClosed { get; set; }
+        private bool IsStartChecking { get; set; }
 
         protected override void Start()
         {
@@ -23,17 +25,29 @@ namespace GameEditor
         protected override void Update()
         {
             base.Update();
+            if (!IsStartChecking)
+                return;
+
+            if (!menu.GameObject.activeSelf && !IsClosed)
+            {
+                IsClosed = true;
+                IsStartChecking = false;
+                ButtonEffect.CancelEffect();
+            }
         }
 
         public override void PressAction()
         {
             menu.Show();
+            IsStartChecking = true;
             InAction();
         }
 
         public override void ReleseAction()
         {
             menu.Close();
+            IsClosed = false;
+            IsStartChecking = false;
             OutAction();
         }
 
