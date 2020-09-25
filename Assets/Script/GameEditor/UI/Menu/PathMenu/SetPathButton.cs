@@ -42,8 +42,8 @@ namespace GameEditor
 
             EndNode = node;
             CreatePath();
-            IsPlacing = false;
-            ButtonEffect.CancelEffect();
+            //IsPlacing = false;
+            StartNode = EndNode = null;
         }
 
         private void SelectEffect(Node node)

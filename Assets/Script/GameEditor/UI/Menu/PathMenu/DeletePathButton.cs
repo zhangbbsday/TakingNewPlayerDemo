@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace GameEditor
 {
@@ -62,6 +63,9 @@ namespace GameEditor
 
         public override void ReleseAction()
         {
+            if (SelectedOne != null)
+                SelectedOne.ReleaseEffect();
+
             IsSelecting = false;
             SelectedOne = null;
         }
