@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508a436a-c1cd-4762-a40c-839945b2af05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/DrillRocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/DrillRocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/ReturnRocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/ReturnRocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/RocketBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/RocketBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelPlayerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelPlayerScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
@@ -30,8 +21,8 @@
         <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/DrillRocket.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/ReturnRocket.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Rocket/RocketBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameRuning/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" />
       </list>
     </option>
   </component>
@@ -61,6 +52,7 @@
       <workItem from="1600008607193" duration="253000" />
       <workItem from="1600406513734" duration="1862000" />
       <workItem from="1600856712889" duration="6382000" />
+      <workItem from="1601292883781" duration="616000" />
     </task>
     <servers />
   </component>
@@ -71,10 +63,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="629" y="223" width="661" height="594" key="find.popup" timestamp="1600874164881">
+    <state x="629" y="223" width="661" height="594" key="find.popup" timestamp="1601292935048">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="629" y="223" width="661" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600874164881" />
+    <state x="629" y="223" width="661" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601292935048" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1600872477042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

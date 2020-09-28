@@ -393,6 +393,7 @@ namespace Assets.Script
 
         public void SetAllExpectation(Node side)
         {
+            if(_bigPic.activeSelf) Debug.Log("f="+ForwardExpectation+",b="+BackwardExpectation);
             //防死循环：在书上签名，如果已经签过名了，就向上返回
             bool thisIsRecurrenceHead = false;//这是递归头
             if (SignBook == null)
@@ -400,7 +401,12 @@ namespace Assets.Script
                 SignBook = new EnemyList();
                 thisIsRecurrenceHead = true;
             }
-            if (SignBook.Contains(this)) return;
+
+            if (SignBook.Contains(this))
+            {
+                if(BackwardExpectation<ForwardExpectation)
+                    return;
+            }
             else SignBook.Add(this);
             
             EnemyList next = SearchOneCrowding(side);
