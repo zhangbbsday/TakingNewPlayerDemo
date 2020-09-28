@@ -4,33 +4,33 @@
     <allnodes>
       <node>
         <id>1</id>
-        <x>-8.635647</x>
-        <y>0.2996844</y>
+        <x>-7.434896</x>
+        <y>0.1171875</y>
       </node>
       <node>
         <id>2</id>
-        <x>3.79337549</x>
-        <y>-0.2996844</y>
+        <x>2.86458373</x>
+        <y>0.0651043653</y>
       </node>
       <node>
         <id>3</id>
-        <x>-3.06782365</x>
-        <y>0.189274549</y>
+        <x>-5.013021</x>
+        <y>3.020833</y>
       </node>
       <node>
         <id>4</id>
-        <x>-2.97318625</x>
-        <y>-2.2712934</y>
+        <x>-3.1640625</x>
+        <y>3.046875</y>
+      </node>
+      <node>
+        <id>5</id>
+        <x>-0.5078124</x>
+        <y>-2.096354</y>
       </node>
       <node>
         <id>6</id>
-        <x>-3.17823339</x>
-        <y>-2.539432</y>
-      </node>
-      <node>
-        <id>7</id>
-        <x>-2.61041021</x>
-        <y>-2.57097769</y>
+        <x>0.8984373</x>
+        <y>-2.08333349</y>
       </node>
     </allnodes>
     <entrancenodes>
@@ -44,45 +44,36 @@
       <end>3</end>
     </link>
     <link>
-      <start>3</start>
-      <end>4</end>
+      <start>4</start>
+      <end>3</end>
     </link>
     <link>
       <start>4</start>
+      <end>5</end>
+    </link>
+    <link>
+      <start>5</start>
       <end>6</end>
     </link>
     <link>
       <start>6</start>
-      <end>7</end>
-    </link>
-    <link>
-      <start>7</start>
-      <end>4</end>
-    </link>
-    <link>
-      <start>3</start>
       <end>2</end>
     </link>
   </links>
   <enemies>
     <enemy>
-      <type>1</type>
-    </enemy>
-    <enemy>
-      <type>1</type>
-    </enemy>
-    <enemy>
-      <type>1</type>
-    </enemy>
-    <enemy>
-      <type>1</type>
-    </enemy>
-    <enemy>
       <type>2</type>
     </enemy>
   </enemies>
   <arrows>
-    <allarrows />
+    <allarrows>
+      <arrow>
+        <type>0</type>
+        <x>-1.87500012</x>
+        <y>-2.1875</y>
+        <direction>0</direction>
+      </arrow>
+    </allarrows>
     <userarrowcount>
       <attackarrow>0</attackarrow>
       <returnarrow>0</returnarrow>

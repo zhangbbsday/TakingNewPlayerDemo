@@ -19,20 +19,20 @@ namespace GameEditor
 
         public void EnterEffect()
         {
-            NewCoroutine coroutine = new NewCoroutine(EnterAction());
-            coroutine.StartCoroutine();
+            //NewCoroutine coroutine = new NewCoroutine(EnterAction());
+            //coroutine.StartCoroutine();
         }
 
         public void ExitEffect()
         {
-            NewCoroutine coroutine = new NewCoroutine(ExitAction());
-            coroutine.StartCoroutine();
+            //NewCoroutine coroutine = new NewCoroutine(ExitAction());
+            //coroutine.StartCoroutine();
         }
 
         public void PressEffect()
         {
-            NewCoroutine coroutine = new NewCoroutine(PressAction());
-            coroutine.StartCoroutine();
+            //NewCoroutine coroutine = new NewCoroutine(PressAction());
+            //coroutine.StartCoroutine();
 
             if (GameManager.Instance != null)
                 GameManager.Instance.AudioMnanager.Play(PressEffectName);
@@ -45,14 +45,18 @@ namespace GameEditor
 
         public void SelectedEffect()
         {
-            NewCoroutine coroutine = new NewCoroutine(SelectedAction());
-            coroutine.StartCoroutine();
+            //NewCoroutine coroutine = new NewCoroutine(SelectedAction());
+            //coroutine.StartCoroutine();
+            if (!IsButtonNull())
+                Button.Button.image.color = SelectedColor;
         }
 
         public void CancelEffect()
         {
-            NewCoroutine coroutine = new NewCoroutine(CancelAction());
-            coroutine.StartCoroutine();
+            //NewCoroutine coroutine = new NewCoroutine(CancelAction());
+            //coroutine.StartCoroutine();
+            if (!IsButtonNull())
+                Button.Button.image.color = DefaultColor;
         }
 
 

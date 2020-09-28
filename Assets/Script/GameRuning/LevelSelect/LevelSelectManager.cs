@@ -98,6 +98,6 @@ public class LevelSelectManager : MonoBehaviour
             return;
 
         GameManager.LevelPath = Application.dataPath+@"/Levels/"+ScriptList[SelectedIndex].Name;
-        SceneManager.LoadScene("LevelPlayerScene");
+        GameEditor.SceneUtils.ChangeScene("LevelPlayerScene");
     }
 }

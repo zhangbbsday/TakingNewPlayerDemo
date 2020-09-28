@@ -132,7 +132,7 @@ namespace Assets.Script
                         _instructionText.text = "游戏开始！敌人正在赶到战场";
                         break;
                     default:
-                        SceneManager.LoadScene("LevelPlayerScene");
+                        GameEditor.SceneUtils.ChangeScene("LevelPlayerScene");
                         break;
                 }
                 
@@ -153,7 +153,7 @@ namespace Assets.Script
             });
             _exitButton.onClick.AddListener(() =>
             {
-                SceneManager.LoadScene("LevelSelectScene");
+                GameEditor.SceneUtils.ChangeScene("LevelSelectScene");
             });
         }
     }
