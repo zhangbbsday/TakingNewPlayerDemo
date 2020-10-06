@@ -2,10 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508a436a-c1cd-4762-a40c-839945b2af05" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TakingNewPlayerDemo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/111.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/111.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/123.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/123.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/2091.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/2091.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/21.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/2132134.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/2132134.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/423.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/423.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/AFSDSA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/AFSDSA.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/FUCKYOU.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/FUCKYOU.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/hta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/hta.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/re.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/re.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/test.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/tri.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/tri.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/tttat.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/tttat.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/复杂.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/复杂.xml.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameRuning/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +80,8 @@
       <workItem from="1600008607193" duration="253000" />
       <workItem from="1600406513734" duration="1862000" />
       <workItem from="1600856712889" duration="6382000" />
-      <workItem from="1601292883781" duration="616000" />
+      <workItem from="1601292883781" duration="1217000" />
+      <workItem from="1601991078783" duration="4426000" />
     </task>
     <servers />
   </component>

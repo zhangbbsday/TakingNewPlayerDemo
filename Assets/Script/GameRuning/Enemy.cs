@@ -27,11 +27,11 @@ namespace Assets.Script
         private GameObject _bigPic;
         private RoutePosition _routePosition;
         public static float _moveDistance = 0.05f;
-        private float _touchDistance = 0.1f; //两个人检测接触时，在他们之间隔着这个距离也算作接触
+        private float _touchDistance = 0.02f; //两个人检测接触时，在他们之间隔着这个距离也算作接触
         private EnemyTypeEnum _type = EnemyTypeEnum.Big;
         private int _pushingPriority;
         [SerializeField] private AudioClip _popSound;
-        public static float BigSize { get; } = 0.43f;
+        public static float BigSize { get; } = 0.55f;
         public static float SmallSize { get; } = 0.25f;
         private GameObject SmallPic
         {
@@ -178,6 +178,10 @@ namespace Assets.Script
         #region 为Move服务
         private void MoveForward(float distance)
         {
+            if (test_select)
+            {
+                Debug.Log("f="+ForwardExpectation+",b="+BackwardExpectation);
+            }
             RoutePosition targetPosition = Position;
             targetPosition.Distance += distance;
             if (targetPosition.Distance >= Position.Link.Distance)//通过了节点
@@ -312,10 +316,10 @@ namespace Assets.Script
                 var myPos = Position;
                 myPos.To = myPos.Link.GetNodeBeside(side);
                 var targetLink = side.LeftSideOf(Position.Link);
-                var left = SearchOneCrowding(targetLink,side,Size+BigSize-DistanceToNode(side)+_touchDistance);
+                var left = SearchOneCrowding(targetLink,side,Size+BigSize-DistanceToNode(side)+_touchDistance+0.051f);
                 targetLink = side.RightSideOf(Position.Link);
                 var right = SearchOneCrowding(targetLink, side,
-                    Size + BigSize - DistanceToNode(side) + _touchDistance);
+                    Size + BigSize - DistanceToNode(side) + _touchDistance+0.051f);
                 result[0] = left;
                 result[2] = right;
                 return result;
@@ -328,7 +332,7 @@ namespace Assets.Script
                     return result;
                 }
                 else
-                {//那个人距离合适，即我们呈挤压状态。对他进行递归查找
+                {//那个人距离合适，即我们呈挤压状态。对他进行查找
                     result[1] = target;
                     return result;
                 }
@@ -469,5 +473,16 @@ namespace Assets.Script
         {
             Type = EnemyTypeEnum.Small;
         }
+
+        #region 測試
+        public bool test_select = false;
+        public void OnMouseDown()
+        {
+            Debug.Log("selected");
+            test_select = true;
+        }
+        
+        #endregion
+       
     }
 }

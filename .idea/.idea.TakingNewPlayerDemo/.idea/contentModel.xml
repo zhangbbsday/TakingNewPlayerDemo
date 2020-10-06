@@ -5,18 +5,15 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Levels" t="Include">
-          <e p="123.xml" t="Include" />
-          <e p="2091.xml" t="Include" />
-          <e p="21.xml" t="Include" />
-          <e p="AFSDSA.xml" t="Include" />
-          <e p="hta.xml" t="Include" />
-          <e p="test.xml" t="Include" />
-          <e p="tttat.xml" t="Include" />
-          <e p="复杂.xml" t="Include" />
-        </e>
-        <e p="save" t="Include">
-          <e p="tatat2.xml" t="Include" />
-          <e p="啦啦啦.xml" t="Include" />
+          <e p="1-发射火箭.xml" t="Include" />
+          <e p="2-安装并发射火箭.xml" t="Include" />
+          <e p="25.xml" t="Include" />
+          <e p="3-一串敌人.xml" t="Include" />
+          <e p="4-回旋.xml" t="Include" />
+          <e p="5-旁路.xml" t="Include" />
+          <e p="6-环岛.xml" t="Include" />
+          <e p="7-小三角.xml" t="Include" />
+          <e p="8-对位.xml" t="Include" />
         </e>
         <e p="Script" t="Include">
           <e p="GameEditor" t="Include">
